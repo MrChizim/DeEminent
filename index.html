@@ -935,6 +935,55 @@
                 font-size: 40px;
             }
         }
+
+        /* Responsive background swaps: serve lower-res / better-cropped images on smaller screens */
+        @media (max-width: 1024px) {
+            .landing-page {
+                background-image: linear-gradient(rgba(13,13,13,0.85), rgba(13,13,13,0.85)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=60');
+            }
+
+            .menu-app {
+                background-image: linear-gradient(rgba(13,13,13,0.92), rgba(13,13,13,0.92)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=60');
+            }
+
+            .hero {
+                background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200&q=60');
+            }
+        }
+
+        @media (max-width: 768px) {
+            .landing-page {
+                background-image: linear-gradient(rgba(13,13,13,0.85), rgba(13,13,13,0.85)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=60');
+                background-position: center top;
+            }
+
+            .menu-app {
+                background-image: linear-gradient(rgba(13,13,13,0.92), rgba(13,13,13,0.92)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=60');
+                background-position: center top;
+            }
+
+            .hero {
+                background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=60');
+                background-position: center top;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .landing-page {
+                background-image: linear-gradient(rgba(13,13,13,0.9), rgba(13,13,13,0.9)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=480&q=50');
+                background-position: center top;
+            }
+
+            .menu-app {
+                background-image: linear-gradient(rgba(13,13,13,0.92), rgba(13,13,13,0.92)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=480&q=50');
+                background-position: center top;
+            }
+
+            .hero {
+                background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=480&q=50');
+                background-position: center top;
+            }
+        }
     </style>
 </head>
 <body>
