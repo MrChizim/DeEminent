@@ -4,12 +4,1317 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#FF8C42">
-    <meta name="description" content="De-Eminent Eatery - Premium Nigerian Fast Food & Catering in Port Harcourt">
     <title>De-Eminent Eatery | A Pinch of Passion</title>
-    <link rel="manifest" href="/manifest.json">
-    <link rel="apple-touch-icon" href="/logo192.png">
+
+    <!-- React & Babel -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #FF8C42;
+            --black: #0D0D0D;
+            --white: #FFFFFF;
+            --gray: #666666;
+            --light-gray: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ===== LANDING PAGE ===== */
+        .landing-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: linear-gradient(rgba(13,13,13,0.85), rgba(13,13,13,0.85)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .landing-page::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,140,66,0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.1); opacity: 0.15; }
+        }
+
+        .landing-logo {
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .landing-logo img {
+            height: 80px;
+            filter: drop-shadow(0 0 30px rgba(255,140,66,0.5));
+        }
+
+        .landing-tagline {
+            font-size: 18px;
+            color: var(--orange);
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+            animation: fadeIn 1s ease 0.3s both;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255,140,66,0.3);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            animation: fadeInUp 1s ease both;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,140,66,0.15);
+            border-color: var(--orange);
+            box-shadow: 0 20px 60px rgba(255,140,66,0.4);
+        }
+
+        .service-icon {
+            font-size: 50px;
+            color: var(--orange);
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-card h2 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .service-card-btn {
+            background: var(--orange);
+            color: var(--white);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .service-card-btn:hover {
+            background: var(--white);
+            color: var(--orange);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== MENU APP ===== */
+        .menu-app {
+            min-height: 100vh;
+            background: linear-gradient(rgba(13,13,13,0.92), rgba(13,13,13,0.92)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(13,13,13,0.95);
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(255,140,66,0.2);
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo img {
+            height: 50px;
+        }
+
+        .nav-contact {
+            background: var(--orange);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-contact:hover {
+            background: var(--white);
+            color: var(--orange);
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 2px solid var(--orange);
+            color: var(--orange);
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 15px;
+        }
+
+        .back-btn:hover {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        /* Hero */
+        .hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,140,66,0.2) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-30px, -30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 55px);
+            font-weight: 900;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+        }
+
+        .hero .hero-highlight {
+            color: var(--orange);
+        }
+
+        .cta-btn {
+            background: var(--orange);
+            color: var(--white);
+            padding: 14px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: var(--white);
+            color: var(--orange);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,140,66,0.3);
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: var(--white);
+            margin: 40px auto;
+            max-width: 900px;
+            border-radius: 15px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            color: var(--black);
+        }
+
+        .promo-content h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+
+        .promo-content .rating {
+            color: var(--orange);
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .promo-content .discount {
+            background: var(--orange);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 700;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .promo-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--orange) 0%, #FF6B1A 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        /* Excellence Divider */
+        .excellence-divider {
+            text-align: center;
+            padding: 40px 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(24px, 4vw, 38px);
+            font-weight: 700;
+        }
+
+        .excellence-divider .highlight {
+            color: var(--orange);
+            font-style: italic;
+        }
+
+        /* Category Filter */
+        .category-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4vw, 42px);
+            margin-bottom: 15px;
+        }
+
+        .category-pills {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .category-pill {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.2);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .category-pill:hover, .category-pill.active {
+            background: var(--orange);
+            border-color: var(--orange);
+            transform: translateY(-2px);
+        }
+
+        /* FULL WIDTH MENU ITEMS - ONE PER LINE */
+        .menu-items {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .menu-item {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 20px;
+            align-items: center;
+            border: 2px solid rgba(255,140,66,0.15);
+            transition: all 0.4s ease;
+            width: 100%;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--orange);
+            box-shadow: 0 15px 50px rgba(255,140,66,0.3);
+        }
+
+        .menu-item-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--orange) 0%, #FF6B1A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item-content {
+            flex: 1;
+        }
+
+        .organic-label {
+            font-style: italic;
+            color: var(--orange);
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .menu-item-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .menu-item-description {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .menu-item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-item-price {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--orange);
+        }
+
+        .discover-btn {
+            background: var(--orange);
+            color: var(--white);
+            padding: 10px 24px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 12px;
+        }
+
+        .discover-btn:hover {
+            background: var(--white);
+            color: var(--orange);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 100px 40px;
+        }
+
+        .testimonials-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid rgba(255,140,66,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-rating {
+            color: var(--orange);
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Chef Section */
+        .chef-section {
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .chef-main {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .chef-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--orange) 0%, #FF6B1A 100%);
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 150px;
+            border: 5px solid rgba(255,140,66,0.3);
+        }
+
+        .chef-name {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .chef-title {
+            color: var(--orange);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .chef-bio {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .team-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(255,140,66,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-5px);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--orange);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0,0,0,0.5);
+            border-top: 1px solid rgba(255,140,66,0.1);
+            padding: 80px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--orange);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,140,66,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--orange);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 5px 25px rgba(37,211,102,0.5);
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse-whatsapp 2s infinite;
+        }
+
+        @keyframes pulse-whatsapp {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 100px 20px;
+            font-size: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .service-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+                flex-wrap: wrap;
+            }
+
+            .promo-banner {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+            }
+
+            .menu-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .menu-item-image {
+                margin: 0 auto;
+            }
+
+            .menu-item-footer {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .category-section {
+                padding: 40px 20px;
+            }
+
+            .testimonials-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Menu Data
+        const menuData = [
+            // Rice Dishes
+            { id: 1, name: 'Jollof Rice with Chicken', category: 'rice', price: 2500, description: 'Perfectly seasoned Nigerian jollof rice with tender grilled chicken, a classic party favorite', icon: '🍛' },
+            { id: 2, name: 'Fried Rice with Beef', category: 'rice', price: 2200, description: 'Colorful fried rice with mixed vegetables and juicy beef strips', icon: '🍚' },
+            { id: 3, name: 'Native Rice with Fish', category: 'rice', price: 2800, description: 'Traditional native rice prepared with palm oil and fresh fish', icon: '🐟' },
+            { id: 4, name: 'Coconut Rice with Prawns', category: 'rice', price: 3200, description: 'Aromatic coconut rice served with succulent prawns', icon: '🍤' },
+            { id: 5, name: 'Ofada Rice with Ayamase', category: 'rice', price: 3000, description: 'Authentic ofada rice with spicy green pepper sauce', icon: '🌶️' },
+
+            // Soups & Swallow
+            { id: 6, name: 'Egusi Soup with Pounded Yam', category: 'soups', price: 3500, description: 'Rich egusi soup with assorted meat and fresh pounded yam', icon: '🍲' },
+            { id: 7, name: 'Ogbono Soup with Fufu', category: 'soups', price: 3200, description: 'Delicious draw soup made from ogbono seeds with smooth fufu', icon: '🥘' },
+            { id: 8, name: 'Banga Soup with Starch', category: 'soups', price: 3800, description: 'Palm nut soup served with traditional white starch', icon: '🥣' },
+            { id: 9, name: 'Afang Soup with Eba', category: 'soups', price: 3600, description: 'Nutritious vegetable soup with fresh eba', icon: '🥗' },
+            { id: 10, name: 'Edikang Ikong with Semo', category: 'soups', price: 4000, description: 'Premium vegetable soup with semovita', icon: '🍵' },
+
+            // Nigerian Specials
+            { id: 11, name: 'Pepper Soup', category: 'specials', price: 2500, description: 'Spicy aromatic soup with your choice of goat meat, fish, or chicken', icon: '🌶️' },
+            { id: 12, name: 'Nkwobi', category: 'specials', price: 4500, description: 'Spicy cow foot delicacy in rich palm oil sauce with utazi leaves', icon: '🍖' },
+            { id: 13, name: 'Isi Ewu', category: 'specials', price: 5000, description: 'Traditional goat head delicacy prepared with authentic spices', icon: '🐐' },
+            { id: 14, name: 'Asun (Spicy Goat)', category: 'specials', price: 4000, description: 'Grilled goat meat in hot pepper sauce, a true delicacy', icon: '🔥' },
+            { id: 15, name: 'Suya Platter', category: 'specials', price: 3500, description: 'Assorted grilled meat with traditional suya spice', icon: '🥩' },
+
+            // Small Chops
+            { id: 16, name: 'Spring Rolls (6 pcs)', category: 'smallchops', price: 1500, description: 'Crispy golden spring rolls filled with vegetables and chicken', icon: '🥟' },
+            { id: 17, name: 'Samosa (6 pcs)', category: 'smallchops', price: 1200, description: 'Triangular pastries stuffed with spiced filling', icon: '🥙' },
+            { id: 18, name: 'Puff Puff (10 pcs)', category: 'smallchops', price: 800, description: 'Sweet fluffy Nigerian doughnut balls', icon: '🍩' },
+            { id: 19, name: 'Chicken Wings (6 pcs)', category: 'smallchops', price: 2500, description: 'Crispy fried chicken wings with choice of sauce', icon: '🍗' },
+            { id: 20, name: 'Fish Rolls (6 pcs)', category: 'smallchops', price: 1800, description: 'Crunchy pastry rolls with fish filling', icon: '🐠' },
+
+            // Shawarma & Pizza
+            { id: 21, name: 'Chicken Shawarma', category: 'shawarma', price: 2000, description: 'Grilled chicken wrap with fresh vegetables and special sauce', icon: '🌯' },
+            { id: 22, name: 'Beef Shawarma', category: 'shawarma', price: 2200, description: 'Juicy beef shawarma with crisp vegetables', icon: '🥙' },
+            { id: 23, name: 'Pepperoni Pizza (Medium)', category: 'shawarma', price: 3500, description: 'Classic pepperoni pizza with melted cheese', icon: '🍕' },
+            { id: 24, name: 'Chicken Supreme Pizza', category: 'shawarma', price: 4000, description: 'Loaded chicken pizza with premium toppings', icon: '🍕' },
+
+            // Pastries
+            { id: 25, name: 'Meat Pie', category: 'pastries', price: 500, description: 'Flaky pastry filled with seasoned minced meat', icon: '🥧' },
+            { id: 26, name: 'Fish Pie', category: 'pastries', price: 600, description: 'Golden pastry with delicious fish filling', icon: '🐟' },
+            { id: 27, name: 'Chicken Pie', category: 'pastries', price: 600, description: 'Savory chicken pie with vegetables', icon: '🥐' },
+            { id: 28, name: 'Sausage Roll', category: 'pastries', price: 500, description: 'Crispy pastry wrapped around tasty sausage', icon: '🌭' },
+            { id: 29, name: 'Doughnuts (3 pcs)', category: 'pastries', price: 900, description: 'Soft and sweet glazed doughnuts', icon: '🍩' },
+
+            // Drinks
+            { id: 30, name: 'Chapman', category: 'drinks', price: 800, description: 'Nigerian cocktail drink with mixed fruits', icon: '🍹' },
+            { id: 31, name: 'Zobo (Hibiscus)', category: 'drinks', price: 500, description: 'Refreshing hibiscus drink', icon: '🥤' },
+            { id: 32, name: 'Fresh Juice', category: 'drinks', price: 1000, description: 'Freshly squeezed fruit juice', icon: '🥤' },
+            { id: 33, name: 'Smoothies', category: 'drinks', price: 1500, description: 'Creamy blended fruit smoothies', icon: '🥤' },
+        ];
+
+        const categories = [
+            { id: 'all', name: 'All', icon: '🍽️' },
+            { id: 'rice', name: 'Rice Dishes', icon: '🍚' },
+            { id: 'soups', name: 'Soups & Swallow', icon: '🍲' },
+            { id: 'specials', name: 'Nigerian Specials', icon: '🌶️' },
+            { id: 'smallchops', name: 'Small Chops', icon: '🥟' },
+            { id: 'shawarma', name: 'Shawarma & Pizza', icon: '🍕' },
+            { id: 'pastries', name: 'Pastries', icon: '🥧' },
+            { id: 'drinks', name: 'Drinks', icon: '🥤' },
+        ];
+
+        // Components
+        function LandingPage({ onNavigate }) {
+            return (
+                <div className="landing-page">
+                    <div className="landing-logo">
+                        <img src="LOGO.PNG" alt="De-Eminent Eatery" />
+                    </div>
+                    <p className="landing-tagline">A Pinch of Passion in every dish</p>
+
+                    <div className="service-cards">
+                        <div className="service-card" onClick={() => onNavigate('menu')}>
+                            <div className="service-icon"><i className="fas fa-utensils"></i></div>
+                            <h2>Our Menu</h2>
+                            <p>Explore our delicious selection of authentic Nigerian cuisine and international favorites</p>
+                            <button className="service-card-btn">View Menu</button>
+                        </div>
+
+                        <div className="service-card" onClick={() => onNavigate('catering')}>
+                            <div className="service-icon"><i className="fas fa-concierge-bell"></i></div>
+                            <h2>Catering Services</h2>
+                            <p>Professional indoor and outdoor catering for all your special events and occasions</p>
+                            <button className="service-card-btn">Book Catering</button>
+                        </div>
+
+                        <div className="service-card" onClick={() => onNavigate('services')}>
+                            <div className="service-icon"><i className="fas fa-store"></i></div>
+                            <h2>Other Services</h2>
+                            <p>Restaurant dining, delivery, takeaway, and more services to serve you better</p>
+                            <button className="service-card-btn">Discover More</button>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function MenuApp({ onBack }) {
+            const [activeCategory, setActiveCategory] = useState('all');
+            const [filteredItems, setFilteredItems] = useState(menuData);
+
+            useEffect(() => {
+                if (activeCategory === 'all') {
+                    setFilteredItems(menuData);
+                } else {
+                    setFilteredItems(menuData.filter(item => item.category === activeCategory));
+                }
+            }, [activeCategory]);
+
+            const orderItem = (itemName) => {
+                const message = `Hello! I'd like to order ${itemName} from De-Eminent Eatery.`;
+                window.open(`https://wa.me/2347039539167?text=${encodeURIComponent(message)}`, '_blank');
+            };
+
+            return (
+                <div className="menu-app">
+                    {/* Navbar */}
+                    <nav className="navbar">
+                        <div className="nav-container">
+                            <button className="back-btn" onClick={onBack}>
+                                <i className="fas fa-arrow-left"></i> Back
+                            </button>
+                            <div className="nav-logo">
+                                <img src="LOGO.PNG" alt="De-Eminent" />
+                            </div>
+                            <a href="tel:07039539167" className="nav-contact">
+                                <i className="fas fa-phone"></i> Call Now
+                            </a>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <div className="hero">
+                        <div className="hero-content">
+                            <h1>Experience the <span className="hero-highlight">Taste of Nigeria</span></h1>
+                            <p>Authentic flavors crafted with passion and served with excellence</p>
+                            <button className="cta-btn" onClick={() => document.querySelector('.category-section').scrollIntoView({ behavior: 'smooth' })}>
+                                Explore Menu
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Promo Banner */}
+                    <div className="promo-banner">
+                        <div className="promo-content">
+                            <h2>Delicious food with exciting discounts you'll love!</h2>
+                            <div className="rating">
+                                <i className="fas fa-star"></i>
+                                <i className="fas fa-star"></i>
+                                <i className="fas fa-star"></i>
+                                <i className="fas fa-star"></i>
+                                <i className="fas fa-star"></i>
+                            </div>
+                            <p>Premium quality ingredients, authentic recipes, and unbeatable taste</p>
+                            <div className="discount">Grab Flat 50% OFF - Limited Time!</div>
+                        </div>
+                        <div className="promo-image">🍽️</div>
+                    </div>
+
+                    {/* Excellence Divider */}
+                    <div className="excellence-divider">
+                        "Where <span className="highlight">Excellence</span> Meets Delivery"
+                    </div>
+
+                    {/* Menu Section */}
+                    <div className="category-section">
+                        <div className="section-header">
+                            <h2>Choose Our Menu</h2>
+                        </div>
+
+                        {/* Category Pills */}
+                        <div className="category-pills">
+                            {categories.map(cat => (
+                                <button
+                                    key={cat.id}
+                                    className={`category-pill ${activeCategory === cat.id ? 'active' : ''}`}
+                                    onClick={() => setActiveCategory(cat.id)}
+                                >
+                                    {cat.icon} {cat.name}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Menu Items - ONE PER LINE */}
+                        <div className="menu-items">
+                            {filteredItems.map(item => (
+                                <div key={item.id} className="menu-item">
+                                    <div className="menu-item-image">{item.icon}</div>
+                                    <div className="menu-item-content">
+                                        <div className="organic-label">Organic Food</div>
+                                        <h3 className="menu-item-name">{item.name}</h3>
+                                        <p className="menu-item-description">{item.description}</p>
+                                        <div className="menu-item-footer">
+                                            <div className="menu-item-price">₦{item.price.toLocaleString()}/-</div>
+                                            <button className="discover-btn" onClick={() => orderItem(item.name)}>
+                                                Discover Our Menu
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Testimonials */}
+                    <div className="testimonials">
+                        <div className="section-header">
+                            <h2>What They Say</h2>
+                        </div>
+                        <div className="testimonials-grid">
+                            <div className="testimonial-card">
+                                <div className="testimonial-rating">
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                </div>
+                                <p className="testimonial-text">"Best jollof rice in Port Harcourt! De-Eminent catered my wedding and every guest was impressed. The food was fresh, hot, and absolutely delicious."</p>
+                                <div className="testimonial-author">
+                                    <div className="testimonial-avatar">AO</div>
+                                    <div>
+                                        <div className="testimonial-name">Adaeze Okonkwo</div>
+                                        <div className="testimonial-role">Wedding Client</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="testimonial-card">
+                                <div className="testimonial-rating">
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                </div>
+                                <p className="testimonial-text">"I order from De-Eminent twice a week. Their egusi soup reminds me of home cooking. Generous portions and always on time!"</p>
+                                <div className="testimonial-author">
+                                    <div className="testimonial-avatar">CE</div>
+                                    <div>
+                                        <div className="testimonial-name">Chukwudi Eze</div>
+                                        <div className="testimonial-role">Regular Customer</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="testimonial-card">
+                                <div className="testimonial-rating">
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                </div>
+                                <p className="testimonial-text">"Their shawarma is the best in town! Perfect wrap, fresh vegetables, and amazing sauce. Highly recommend!"</p>
+                                <div className="testimonial-author">
+                                    <div className="testimonial-avatar">NB</div>
+                                    <div>
+                                        <div className="testimonial-name">Ngozi Babatunde</div>
+                                        <div className="testimonial-role">Corporate Client</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Chef Section */}
+                    <div className="chef-section">
+                        <div className="section-header">
+                            <h2>Meet Our Chef</h2>
+                        </div>
+                        <div className="chef-main">
+                            <div className="chef-image">👨‍🍳</div>
+                            <h3 className="chef-name">Chef Emmanuel</h3>
+                            <p className="chef-title">Head Chef & Culinary Director</p>
+                            <p className="chef-bio">
+                                With over 15 years of culinary experience, Chef Emmanuel leads our kitchen with passion and expertise.
+                                Trained in both traditional Nigerian cuisine and international culinary arts, he brings authentic flavors to every dish.
+                            </p>
+                            <button className="cta-btn">See Details</button>
+                        </div>
+
+                        <div className="team-grid">
+                            <div className="team-card">
+                                <div className="team-avatar">👨‍🍳</div>
+                                <h4>Emeka Nwankwo</h4>
+                                <p style={{color: 'var(--orange)', marginBottom: '10px'}}>Sous Chef</p>
+                                <div style={{color: 'var(--orange)'}}>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                </div>
+                            </div>
+
+                            <div className="team-card">
+                                <div className="team-avatar">👩‍🍳</div>
+                                <h4>Grace Adeyemi</h4>
+                                <p style={{color: 'var(--orange)', marginBottom: '10px'}}>Pastry Chef</p>
+                                <div style={{color: 'var(--orange)'}}>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                </div>
+                            </div>
+
+                            <div className="team-card">
+                                <div className="team-avatar">👨‍🍳</div>
+                                <h4>Ibrahim Musa</h4>
+                                <p style={{color: 'var(--orange)', marginBottom: '10px'}}>Grill Master</p>
+                                <div style={{color: 'var(--orange)'}}>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Footer */}
+                    <footer className="footer">
+                        <div className="footer-content">
+                            <div className="footer-section">
+                                <div className="footer-logo">
+                                    <img src="LOGO.PNG" alt="De-Eminent" />
+                                </div>
+                                <p>Premium Nigerian Fast Food Restaurant and Catering Service in Port Harcourt. A Pinch of Passion in every dish.</p>
+                                <div className="social-icons">
+                                    <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
+                                    <a href="#" className="social-icon"><i className="fab fa-instagram"></i></a>
+                                    <a href="#" className="social-icon"><i className="fab fa-twitter"></i></a>
+                                    <a href="https://wa.me/2347039539167" className="social-icon"><i className="fab fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+
+                            <div className="footer-section">
+                                <h3>Quick Links</h3>
+                                <a href="#home">Home</a>
+                                <a href="#menu">Menu</a>
+                                <a href="#about">About</a>
+                                <a href="#contact">Contact</a>
+                            </div>
+
+                            <div className="footer-section">
+                                <h3>Services</h3>
+                                <a href="#">Restaurant</a>
+                                <a href="#">Fast Food</a>
+                                <a href="#">Catering</a>
+                                <a href="#">Delivery</a>
+                            </div>
+
+                            <div className="footer-section">
+                                <h3>Contact</h3>
+                                <p>54 Port Harcourt Road</p>
+                                <p>Chokocho Etche</p>
+                                <p>Port Harcourt</p>
+                                <a href="tel:07039539167">07039539167</a>
+                                <p>Mon-Sat: 8AM-10PM</p>
+                            </div>
+                        </div>
+
+                        <div className="footer-bottom">
+                            <p>&copy; 2026 De-Eminent Eatery. All rights reserved.</p>
+                        </div>
+                    </footer>
+
+                    {/* WhatsApp Float */}
+                    <div className="whatsapp-float" onClick={() => window.open('https://wa.me/2347039539167?text=Hello! I\'d like to place an order', '_blank')}>
+                        <i className="fab fa-whatsapp"></i>
+                    </div>
+                </div>
+            );
+        }
+
+        function CateringPage({ onBack }) {
+            return (
+                <div className="menu-app">
+                    <nav className="navbar">
+                        <div className="nav-container">
+                            <button className="back-btn" onClick={onBack}>
+                                <i className="fas fa-arrow-left"></i> Back
+                            </button>
+                            <div className="nav-logo">
+                                <img src="LOGO.PNG" alt="De-Eminent" />
+                            </div>
+                            <a href="tel:07039539167" className="nav-contact">
+                                <i className="fas fa-phone"></i> Call Now
+                            </a>
+                        </div>
+                    </nav>
+
+                    <div style={{padding: '120px 40px', textAlign: 'center', minHeight: '100vh'}}>
+                        <h1 style={{fontSize: '60px', marginBottom: '30px'}}>Catering Services</h1>
+                        <p style={{fontSize: '24px', color: 'rgba(255,255,255,0.7)', maxWidth: '800px', margin: '0 auto 50px'}}>
+                            Professional catering for weddings, corporate events, birthdays, and all special occasions
+                        </p>
+                        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', maxWidth: '1200px', margin: '0 auto'}}>
+                            <div style={{background: 'rgba(255,255,255,0.05)', padding: '40px', borderRadius: '20px', border: '2px solid rgba(255,140,66,0.2)'}}>
+                                <div style={{fontSize: '60px', marginBottom: '20px'}}>🎉</div>
+                                <h3 style={{fontSize: '24px', marginBottom: '15px'}}>Indoor Catering</h3>
+                                <p style={{color: 'rgba(255,255,255,0.7)'}}>Professional setup for indoor events with full service</p>
+                            </div>
+                            <div style={{background: 'rgba(255,255,255,0.05)', padding: '40px', borderRadius: '20px', border: '2px solid rgba(255,140,66,0.2)'}}>
+                                <div style={{fontSize: '60px', marginBottom: '20px'}}>⛺</div>
+                                <h3 style={{fontSize: '24px', marginBottom: '15px'}}>Outdoor Catering</h3>
+                                <p style={{color: 'rgba(255,255,255,0.7)'}}>Perfect for outdoor events and garden parties</p>
+                            </div>
+                            <div style={{background: 'rgba(255,255,255,0.05)', padding: '40px', borderRadius: '20px', border: '2px solid rgba(255,140,66,0.2)'}}>
+                                <div style={{fontSize: '60px', marginBottom: '20px'}}>💼</div>
+                                <h3 style={{fontSize: '24px', marginBottom: '15px'}}>Corporate Events</h3>
+                                <p style={{color: 'rgba(255,255,255,0.7)'}}>Professional catering for business functions</p>
+                            </div>
+                        </div>
+                        <button className="cta-btn" style={{marginTop: '50px'}} onClick={() => window.open('https://wa.me/2347039539167?text=Hello! I\'d like to book catering services', '_blank')}>
+                            Book Now via WhatsApp
+                        </button>
+                    </div>
+                </div>
+            );
+        }
+
+        function ServicesPage({ onBack }) {
+            return (
+                <div className="menu-app">
+                    <nav className="navbar">
+                        <div className="nav-container">
+                            <button className="back-btn" onClick={onBack}>
+                                <i className="fas fa-arrow-left"></i> Back
+                            </button>
+                            <div className="nav-logo">
+                                <img src="LOGO.PNG" alt="De-Eminent" />
+                            </div>
+                            <a href="tel:07039539167" className="nav-contact">
+                                <i className="fas fa-phone"></i> Call Now
+                            </a>
+                        </div>
+                    </nav>
+
+                    <div style={{padding: '120px 40px', textAlign: 'center', minHeight: '100vh'}}>
+                        <h1 style={{fontSize: '60px', marginBottom: '30px'}}>Our Services</h1>
+                        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', maxWidth: '1200px', margin: '0 auto'}}>
+                            <div style={{background: 'rgba(255,255,255,0.05)', padding: '40px', borderRadius: '20px', border: '2px solid rgba(255,140,66,0.2)'}}>
+                                <div style={{fontSize: '60px', marginBottom: '20px'}}>🍽️</div>
+                                <h3 style={{fontSize: '24px', marginBottom: '15px'}}>Restaurant Dining</h3>
+                                <p style={{color: 'rgba(255,255,255,0.7)'}}>Enjoy our delicious meals in a comfortable atmosphere</p>
+                            </div>
+                            <div style={{background: 'rgba(255,255,255,0.05)', padding: '40px', borderRadius: '20px', border: '2px solid rgba(255,140,66,0.2)'}}>
+                                <div style={{fontSize: '60px', marginBottom: '20px'}}>🚚</div>
+                                <h3 style={{fontSize: '24px', marginBottom: '15px'}}>Fast Delivery</h3>
+                                <p style={{color: 'rgba(255,255,255,0.7)'}}>Quick delivery service across Port Harcourt</p>
+                            </div>
+                            <div style={{background: 'rgba(255,255,255,0.05)', padding: '40px', borderRadius: '20px', border: '2px solid rgba(255,140,66,0.2)'}}>
+                                <div style={{fontSize: '60px', marginBottom: '20px'}}>📦</div>
+                                <h3 style={{fontSize: '24px', marginBottom: '15px'}}>Takeaway</h3>
+                                <p style={{color: 'rgba(255,255,255,0.7)'}}>Order and pick up your favorite meals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Main App
+        function App() {
+            const [currentPage, setCurrentPage] = useState('landing');
+
+            const navigate = (page) => {
+                setCurrentPage(page);
+                window.scrollTo(0, 0);
+            };
+
+            return (
+                <>
+                    {currentPage === 'landing' && <LandingPage onNavigate={navigate} />}
+                    {currentPage === 'menu' && <MenuApp onBack={() => navigate('landing')} />}
+                    {currentPage === 'catering' && <CateringPage onBack={() => navigate('landing')} />}
+                    {currentPage === 'services' && <ServicesPage onBack={() => navigate('landing')} />}
+                </>
+            );
+        }
+
+        // Render
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
