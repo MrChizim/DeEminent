@@ -71,30 +71,10 @@
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            perspective: 1500px;
         }
 
         * {
             scroll-behavior: smooth;
-        }
-
-        a, button, .menu-item, .service-card, .nav-item, .category-nav-item, .category-pill, .discover-btn, .whatsapp-btn {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        *:focus {
-            outline: 2px solid var(--orange);
-            outline-offset: 3px;
-        }
-
-        /* Hardware acceleration for smooth animations */
-        .menu-item, .service-card, .nav-item, .category-nav-item, .category-pill, .discover-btn, .whatsapp-btn {
-            -webkit-transform: translateZ(0);
-            -moz-transform: translateZ(0);
-            -ms-transform: translateZ(0);
-            transform: translateZ(0);
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
         }
 
         /* ===== LANDING PAGE ===== */
@@ -164,11 +144,8 @@
             padding: 35px 25px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.4s ease;
             animation: fadeInUp 1s ease both;
-            transform-style: preserve-3d;
-            transform: translateZ(0);
-            will-change: transform;
         }
 
         .service-card:nth-child(2) {
@@ -180,23 +157,21 @@
         }
 
         .service-card:hover {
-            transform: translateY(-15px) translateZ(50px) rotateX(5deg);
+            transform: translateY(-10px);
             background: rgba(255,140,66,0.15);
             border-color: var(--orange);
-            box-shadow: 0 25px 70px rgba(255,140,66,0.5), 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(255,140,66,0.4);
         }
 
         .service-icon {
             font-size: 50px;
             color: var(--orange);
             margin-bottom: 20px;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            display: inline-block;
+            transition: all 0.4s ease;
         }
 
         .service-card:hover .service-icon {
-            transform: scale(1.2) rotate(8deg) translateZ(20px);
-            filter: drop-shadow(0 5px 15px rgba(255,140,66,0.6));
+            transform: scale(1.1) rotate(5deg);
         }
 
         .service-card h2 {
@@ -481,25 +456,17 @@
             padding: 10px 24px;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease;
             font-weight: 600;
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transform-style: preserve-3d;
-            transform: translateZ(0);
-            will-change: transform;
         }
 
         .category-pill:hover, .category-pill.active {
             background: var(--orange);
             border-color: var(--orange);
-            transform: translateY(-4px) translateZ(20px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(255,140,66,0.4);
-        }
-
-        .category-pill:active {
-            transform: translateY(-2px) translateZ(10px) scale(1.02);
+            transform: translateY(-2px);
         }
 
         /* FULL WIDTH MENU ITEMS - ONE PER LINE */
@@ -521,19 +488,16 @@
             gap: 15px;
             align-items: center;
             border: 2px solid rgba(255,140,66,0.2);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             width: 100%;
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            transform-style: preserve-3d;
-            transform: perspective(1000px) translateZ(0);
-            will-change: transform;
         }
 
         .menu-item:hover {
-            transform: perspective(1000px) translateY(-10px) translateZ(30px) rotateX(2deg);
+            transform: translateY(-8px);
             border-color: var(--orange);
-            box-shadow: 0 25px 70px rgba(255,140,66,0.5), 0 15px 40px rgba(0,0,0,0.2);
-            background: linear-gradient(135deg, rgba(255,140,66,0.18) 0%, rgba(255,140,66,0.10) 100%);
+            box-shadow: 0 20px 60px rgba(255,140,66,0.4);
+            background: linear-gradient(135deg, rgba(255,140,66,0.15) 0%, rgba(255,140,66,0.08) 100%);
         }
 
         .menu-item-image {
@@ -548,13 +512,12 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 6px 15px rgba(255,140,66,0.3);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            transform-style: preserve-3d;
+            transition: all 0.4s ease;
         }
 
         .menu-item:hover .menu-item-image {
-            transform: scale(1.1) rotate(-5deg) translateZ(40px);
-            box-shadow: 0 20px 50px rgba(255,140,66,0.6);
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 15px 40px rgba(255,140,66,0.5);
         }
 
         .menu-item-content {
@@ -605,7 +568,7 @@
             border-radius: 50px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             font-size: 11px;
@@ -613,18 +576,13 @@
             align-items: center;
             gap: 6px;
             box-shadow: 0 4px 15px rgba(255,140,66,0.3);
-            transform-style: preserve-3d;
         }
 
         .discover-btn:hover {
             background: var(--white);
             color: var(--orange);
-            transform: translateY(-3px) translateZ(10px) scale(1.05);
-            box-shadow: 0 8px 30px rgba(255,140,66,0.6);
-        }
-
-        .discover-btn:active {
-            transform: translateY(-1px) translateZ(5px) scale(0.98);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255,140,66,0.5);
         }
 
         .discover-btn i {
@@ -637,7 +595,6 @@
             padding: 20px 0;
             border-bottom: 3px solid var(--orange);
             position: relative;
-            transition: all 0.5s ease;
         }
 
         .category-header h3 {
@@ -648,22 +605,10 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .category-header:hover h3 {
-            transform: translateX(10px);
-            color: var(--orange);
         }
 
         .category-header h3 .category-emoji {
             font-size: 40px;
-            display: inline-block;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .category-header:hover h3 .category-emoji {
-            transform: scale(1.15) rotate(10deg);
         }
 
         .category-header:first-of-type {
@@ -1031,24 +976,15 @@
             align-items: center;
             justify-content: center;
             color: var(--white);
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease;
             font-size: 20px;
             text-decoration: none;
-            transform-style: preserve-3d;
-            transform: translateZ(0);
-            will-change: transform;
-            box-shadow: 0 4px 12px rgba(255,140,66,0.3);
         }
 
         .social-icon:hover {
             background: var(--white);
             color: var(--orange);
-            transform: translateY(-5px) translateZ(20px) scale(1.1) rotate(5deg);
-            box-shadow: 0 10px 30px rgba(255,140,66,0.5);
-        }
-
-        .social-icon:active {
-            transform: translateY(-2px) translateZ(10px) scale(1.05);
+            transform: translateY(-3px) scale(1.05);
         }
 
         .footer-bottom {
@@ -1092,41 +1028,31 @@
             align-items: center;
             gap: 5px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease;
             padding: 8px 12px;
             border-radius: 12px;
             flex: 1;
             min-width: 0;
-            transform-style: preserve-3d;
-            transform: translateZ(0);
-            will-change: transform;
         }
 
         .nav-item:hover {
             background: rgba(255,140,66,0.15);
-            transform: translateY(-5px) translateZ(15px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(255,140,66,0.3);
+            transform: translateY(-3px);
         }
 
         .nav-item.active {
             background: rgba(255,140,66,0.2);
-            box-shadow: 0 4px 15px rgba(255,140,66,0.4);
-        }
-
-        .nav-item:active {
-            transform: translateY(-2px) translateZ(8px) scale(1.02);
         }
 
         .nav-item i {
             font-size: 22px;
             color: var(--orange);
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease;
         }
 
         .nav-item:hover i {
-            transform: scale(1.2) translateZ(10px);
+            transform: scale(1.15);
             color: var(--white);
-            filter: drop-shadow(0 3px 8px rgba(255,140,66,0.5));
         }
 
         .nav-item span {
@@ -1186,33 +1112,21 @@
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 8px;
             box-shadow: 0 4px 15px rgba(37,211,102,0.3);
-            transform-style: preserve-3d;
-            transform: translateZ(0);
-            will-change: transform;
         }
 
         .whatsapp-btn:hover {
             background: #20BA5A;
-            transform: translateY(-4px) translateZ(20px) scale(1.05);
-            box-shadow: 0 10px 35px rgba(37,211,102,0.6);
-        }
-
-        .whatsapp-btn:active {
-            transform: translateY(-2px) translateZ(10px) scale(1.02);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(37,211,102,0.5);
         }
 
         .whatsapp-btn i {
             font-size: 18px;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .whatsapp-btn:hover i {
-            transform: rotate(15deg) scale(1.1);
         }
 
         /* Sticky Category Nav */
@@ -1250,33 +1164,24 @@
             align-items: center;
             gap: 8px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease;
             padding: 15px 20px;
             border-radius: 16px;
             min-width: 110px;
             background: rgba(255,255,255,0.05);
             border: 2px solid transparent;
             flex-shrink: 0;
-            transform-style: preserve-3d;
-            transform: translateZ(0);
-            will-change: transform;
         }
 
         .category-nav-item:hover {
             background: rgba(255,140,66,0.15);
-            transform: translateY(-5px) translateZ(20px) scale(1.05);
+            transform: translateY(-3px);
             border-color: rgba(255,140,66,0.3);
-            box-shadow: 0 10px 30px rgba(255,140,66,0.3);
         }
 
         .category-nav-item.active {
             background: rgba(255,140,66,0.2);
             border-color: var(--orange);
-            box-shadow: 0 6px 20px rgba(255,140,66,0.4);
-        }
-
-        .category-nav-item:active {
-            transform: translateY(-2px) translateZ(10px) scale(1.02);
         }
 
         .category-nav-icon {
@@ -1288,14 +1193,13 @@
             align-items: center;
             justify-content: center;
             font-size: 26px;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255,140,66,0.3);
-            transform-style: preserve-3d;
         }
 
         .category-nav-item:hover .category-nav-icon {
-            transform: scale(1.15) rotate(-8deg) translateZ(15px);
-            box-shadow: 0 10px 30px rgba(255,140,66,0.6);
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 6px 25px rgba(255,140,66,0.5);
         }
 
         .category-nav-item span {
