@@ -1,0 +1,16 @@
+# robots.txt for De-Eminent Eatery
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /LOGO.PNG
+
+# Sitemap location
+Sitemap: https://deeminenteatery.com/sitemap.xml
+
+# Crawl-delay (optional, in seconds)
+Crawl-delay: 1
+
+# Block specific crawlers if needed (uncomment if necessary)
+# User-agent: BadBot
+# Disallow: /

@@ -4,7 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#FF8C42">
-    <title>De-Eminent Eatery | A Pinch of Passion</title>
+
+    <!-- Primary Meta Tags -->
+    <title>De-Eminent Eatery | Best Nigerian Restaurant in Port Harcourt | Catering Services</title>
+    <meta name="title" content="De-Eminent Eatery | Best Nigerian Restaurant in Port Harcourt | Catering Services">
+    <meta name="description" content="De-Eminent Eatery offers authentic Nigerian cuisine, fast food, and professional catering services in Port Harcourt. Order jollof rice, egusi soup, shawarma, and more. A Pinch of Passion in every dish.">
+    <meta name="keywords" content="Nigerian restaurant Port Harcourt, jollof rice, egusi soup, Nigerian food, catering services Port Harcourt, fast food, shawarma, suya, nkwobi, food delivery Port Harcourt, De-Eminent Eatery, Chokocho Etche restaurant">
+    <meta name="author" content="De-Eminent Eatery">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://deeminenteatery.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deeminenteatery.com/">
+    <meta property="og:title" content="De-Eminent Eatery | Best Nigerian Restaurant in Port Harcourt">
+    <meta property="og:description" content="Authentic Nigerian cuisine, fast food, and professional catering services. Order now for delicious jollof rice, egusi soup, shawarma, and more!">
+    <meta property="og:image" content="https://deeminenteatery.com/LOGO.PNG">
+    <meta property="og:site_name" content="De-Eminent Eatery">
+    <meta property="og:locale" content="en_NG">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://deeminenteatery.com/">
+    <meta property="twitter:title" content="De-Eminent Eatery | Best Nigerian Restaurant in Port Harcourt">
+    <meta property="twitter:description" content="Authentic Nigerian cuisine, fast food, and professional catering services. Order now!">
+    <meta property="twitter:image" content="https://deeminenteatery.com/LOGO.PNG">
+
+    <!-- Business Information -->
+    <meta name="geo.region" content="NG-RI">
+    <meta name="geo.placename" content="Port Harcourt">
+    <meta name="geo.position" content="4.828844;7.011863">
+    <meta name="ICBM" content="4.828844, 7.011863">
 
     <!-- React & Babel -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -37,6 +67,34 @@
             background: var(--black);
             color: var(--white);
             overflow-x: hidden;
+            padding-bottom: 80px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            perspective: 1500px;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        a, button, .menu-item, .service-card, .nav-item, .category-nav-item, .category-pill, .discover-btn, .whatsapp-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *:focus {
+            outline: 2px solid var(--orange);
+            outline-offset: 3px;
+        }
+
+        /* Hardware acceleration for smooth animations */
+        .menu-item, .service-card, .nav-item, .category-nav-item, .category-pill, .discover-btn, .whatsapp-btn {
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         /* ===== LANDING PAGE ===== */
@@ -106,8 +164,11 @@
             padding: 35px 25px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             animation: fadeInUp 1s ease both;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            will-change: transform;
         }
 
         .service-card:nth-child(2) {
@@ -119,21 +180,23 @@
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) translateZ(50px) rotateX(5deg);
             background: rgba(255,140,66,0.15);
             border-color: var(--orange);
-            box-shadow: 0 20px 60px rgba(255,140,66,0.4);
+            box-shadow: 0 25px 70px rgba(255,140,66,0.5), 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .service-icon {
             font-size: 50px;
             color: var(--orange);
             margin-bottom: 20px;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: inline-block;
         }
 
         .service-card:hover .service-icon {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.2) rotate(8deg) translateZ(20px);
+            filter: drop-shadow(0 5px 15px rgba(255,140,66,0.6));
         }
 
         .service-card h2 {
@@ -251,7 +314,7 @@
 
         /* Hero */
         .hero {
-            height: 50vh;
+            min-height: 60vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&q=80');
             background-size: cover;
             background-position: center;
@@ -261,6 +324,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            padding: 80px 20px;
         }
 
         .hero::before {
@@ -373,7 +437,7 @@
         /* Excellence Divider */
         .excellence-divider {
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
             font-family: 'Playfair Display', serif;
             font-size: clamp(24px, 4vw, 38px);
             font-weight: 700;
@@ -388,12 +452,12 @@
         .category-section {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 40px;
+            padding: 60px 40px 80px;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
 
         .section-header h2 {
@@ -417,59 +481,80 @@
             padding: 10px 24px;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             font-weight: 600;
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            will-change: transform;
         }
 
         .category-pill:hover, .category-pill.active {
             background: var(--orange);
             border-color: var(--orange);
-            transform: translateY(-2px);
+            transform: translateY(-4px) translateZ(20px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255,140,66,0.4);
+        }
+
+        .category-pill:active {
+            transform: translateY(-2px) translateZ(10px) scale(1.02);
         }
 
         /* FULL WIDTH MENU ITEMS - ONE PER LINE */
         .menu-items {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 30px;
         }
 
         .menu-item {
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.06) 100%);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 15px;
             display: grid;
-            grid-template-columns: 140px 1fr;
-            gap: 20px;
+            grid-template-columns: 80px 1fr;
+            gap: 15px;
             align-items: center;
-            border: 2px solid rgba(255,140,66,0.15);
-            transition: all 0.4s ease;
+            border: 2px solid rgba(255,140,66,0.2);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             width: 100%;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transform-style: preserve-3d;
+            transform: perspective(1000px) translateZ(0);
+            will-change: transform;
         }
 
         .menu-item:hover {
-            transform: translateY(-5px);
+            transform: perspective(1000px) translateY(-10px) translateZ(30px) rotateX(2deg);
             border-color: var(--orange);
-            box-shadow: 0 15px 50px rgba(255,140,66,0.3);
+            box-shadow: 0 25px 70px rgba(255,140,66,0.5), 0 15px 40px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, rgba(255,140,66,0.18) 0%, rgba(255,140,66,0.10) 100%);
         }
 
         .menu-item-image {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
             background: linear-gradient(135deg, var(--orange) 0%, #FF6B1A 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 60px;
+            font-size: 36px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 6px 15px rgba(255,140,66,0.3);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-style: preserve-3d;
+        }
+
+        .menu-item:hover .menu-item-image {
+            transform: scale(1.1) rotate(-5deg) translateZ(40px);
+            box-shadow: 0 20px 50px rgba(255,140,66,0.6);
         }
 
         .menu-item-content {
@@ -484,47 +569,105 @@
         }
 
         .menu-item-name {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            color: var(--white);
+            letter-spacing: 0.5px;
         }
 
         .menu-item-description {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.75);
             line-height: 1.5;
-            margin-bottom: 15px;
-            font-size: 14px;
+            margin-bottom: 12px;
+            font-size: 12px;
         }
 
         .menu-item-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 15px;
         }
 
         .menu-item-price {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 800;
             color: var(--orange);
+            text-shadow: 0 2px 10px rgba(255,140,66,0.3);
         }
 
         .discover-btn {
             background: var(--orange);
             color: var(--white);
-            padding: 10px 24px;
+            padding: 10px 22px;
             border: none;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 12px;
+            letter-spacing: 0.5px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 15px rgba(255,140,66,0.3);
+            transform-style: preserve-3d;
         }
 
         .discover-btn:hover {
             background: var(--white);
             color: var(--orange);
+            transform: translateY(-3px) translateZ(10px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(255,140,66,0.6);
+        }
+
+        .discover-btn:active {
+            transform: translateY(-1px) translateZ(5px) scale(0.98);
+        }
+
+        .discover-btn i {
+            font-size: 14px;
+        }
+
+        /* Category Section Headers */
+        .category-header {
+            margin: 60px 0 30px;
+            padding: 20px 0;
+            border-bottom: 3px solid var(--orange);
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .category-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--white);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .category-header:hover h3 {
+            transform: translateX(10px);
+            color: var(--orange);
+        }
+
+        .category-header h3 .category-emoji {
+            font-size: 40px;
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .category-header:hover h3 .category-emoji {
+            transform: scale(1.15) rotate(10deg);
+        }
+
+        .category-header:first-of-type {
+            margin-top: 0;
         }
 
         /* Testimonials */
@@ -673,10 +816,129 @@
             font-size: 50px;
         }
 
+        /* Location Map */
+        .location-section {
+            padding: 100px 40px;
+            background: rgba(255,255,255,0.03);
+            border-top: 1px solid rgba(255,140,66,0.1);
+        }
+
+        .location-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .location-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .location-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 4vw, 48px);
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .location-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+        }
+
+        .location-content {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .contact-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .location-item {
+            background: linear-gradient(135deg, rgba(255,140,66,0.15) 0%, rgba(255,140,66,0.05) 100%);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 16px;
+            border: 2px solid rgba(255,140,66,0.25);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .location-item:hover {
+            background: linear-gradient(135deg, rgba(255,140,66,0.25) 0%, rgba(255,140,66,0.12) 100%);
+            transform: translateY(-8px);
+            border-color: var(--orange);
+            box-shadow: 0 15px 45px rgba(255,140,66,0.3);
+        }
+
+        .location-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--orange) 0%, #FF6B1A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            flex-shrink: 0;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 25px rgba(255,140,66,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .location-item:hover .location-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 35px rgba(255,140,66,0.6);
+        }
+
+        .location-details h4 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .location-details p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .location-details a {
+            color: var(--orange);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 600;
+        }
+
+        .location-details a:hover {
+            color: var(--white);
+        }
+
+        .map-container {
+            border-radius: 24px;
+            overflow: hidden;
+            border: 4px solid rgba(255,140,66,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            height: 450px;
+            width: 100%;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         /* Footer */
         .footer {
-            background: rgba(0,0,0,0.5);
-            border-top: 1px solid rgba(255,140,66,0.1);
+            background: rgba(0,0,0,0.7);
+            border-top: 1px solid rgba(255,140,66,0.2);
             padding: 80px 40px 30px;
         }
 
@@ -684,93 +946,364 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 60px;
         }
 
         .footer-section h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: var(--white);
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--orange);
+            border-radius: 2px;
         }
 
         .footer-logo img {
-            height: 50px;
-            margin-bottom: 20px;
+            height: 60px;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 20px rgba(255,140,66,0.3));
         }
 
-        .footer-section p,
+        .footer-section p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
         .footer-section a {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.7);
             line-height: 1.8;
             text-decoration: none;
             display: block;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            padding-left: 0;
+            position: relative;
+        }
+
+        .footer-section a::before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: var(--orange);
         }
 
         .footer-section a:hover {
             color: var(--orange);
+            padding-left: 25px;
+        }
+
+        .footer-section a:hover::before {
+            opacity: 1;
+            left: 0;
         }
 
         .social-icons {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 25px;
+            flex-wrap: wrap;
         }
 
         .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255,140,66,0.1);
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            background: var(--orange);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--orange);
-            transition: all 0.3s ease;
+            color: var(--white);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-size: 20px;
+            text-decoration: none;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            will-change: transform;
+            box-shadow: 0 4px 12px rgba(255,140,66,0.3);
         }
 
         .social-icon:hover {
-            background: var(--orange);
-            color: var(--white);
+            background: var(--white);
+            color: var(--orange);
+            transform: translateY(-5px) translateZ(20px) scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(255,140,66,0.5);
+        }
+
+        .social-icon:active {
+            transform: translateY(-2px) translateZ(10px) scale(1.05);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.4);
+            padding-top: 40px;
+            border-top: 2px solid rgba(255,140,66,0.2);
+            color: rgba(255,255,255,0.5);
+            font-size: 15px;
         }
 
-        /* WhatsApp Float */
-        .whatsapp-float {
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        /* Bottom Navigation Bar */
+        .bottom-nav {
             position: fixed;
-            bottom: 30px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(13,13,13,0.85);
+            backdrop-filter: blur(15px);
+            border-top: 2px solid rgba(255,140,66,0.3);
+            padding: 12px 20px 12px;
+            z-index: 1000;
+            box-shadow: 0 -5px 30px rgba(0,0,0,0.3);
+        }
+
+        .bottom-nav-container {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            padding: 8px 12px;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 0;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .nav-item:hover {
+            background: rgba(255,140,66,0.15);
+            transform: translateY(-5px) translateZ(15px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255,140,66,0.3);
+        }
+
+        .nav-item.active {
+            background: rgba(255,140,66,0.2);
+            box-shadow: 0 4px 15px rgba(255,140,66,0.4);
+        }
+
+        .nav-item:active {
+            transform: translateY(-2px) translateZ(8px) scale(1.02);
+        }
+
+        .nav-item i {
+            font-size: 22px;
+            color: var(--orange);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .nav-item:hover i {
+            transform: scale(1.2) translateZ(10px);
+            color: var(--white);
+            filter: drop-shadow(0 3px 8px rgba(255,140,66,0.5));
+        }
+
+        .nav-item span {
+            font-size: 11px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
             right: 30px;
-            width: 65px;
-            height: 65px;
-            background: #25D366;
+            width: 55px;
+            height: 55px;
+            background: var(--orange);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 32px;
-            box-shadow: 0 5px 25px rgba(37,211,102,0.5);
+            font-size: 24px;
+            box-shadow: 0 5px 25px rgba(255,140,66,0.5);
             cursor: pointer;
             z-index: 999;
             transition: all 0.3s ease;
-            animation: pulse-whatsapp 2s infinite;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
         }
 
-        @keyframes pulse-whatsapp {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
+        .back-to-top:hover {
+            background: var(--white);
+            color: var(--orange);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(255,140,66,0.6);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .whatsapp-btn:hover {
+            background: #20BA5A;
+            transform: translateY(-4px) translateZ(20px) scale(1.05);
+            box-shadow: 0 10px 35px rgba(37,211,102,0.6);
+        }
+
+        .whatsapp-btn:active {
+            transform: translateY(-2px) translateZ(10px) scale(1.02);
+        }
+
+        .whatsapp-btn i {
+            font-size: 18px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .whatsapp-btn:hover i {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Sticky Category Nav */
+        .sticky-category-nav {
+            position: sticky;
+            top: 86px;
+            z-index: 99;
+            background: rgba(13,13,13,0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 2px solid rgba(255,140,66,0.3);
+            padding: 20px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            margin-bottom: 40px;
+        }
+
+        .category-nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 0 20px;
+        }
+
+        .category-nav-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            padding: 15px 20px;
+            border-radius: 16px;
+            min-width: 110px;
+            background: rgba(255,255,255,0.05);
+            border: 2px solid transparent;
+            flex-shrink: 0;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .category-nav-item:hover {
+            background: rgba(255,140,66,0.15);
+            transform: translateY(-5px) translateZ(20px) scale(1.05);
+            border-color: rgba(255,140,66,0.3);
+            box-shadow: 0 10px 30px rgba(255,140,66,0.3);
+        }
+
+        .category-nav-item.active {
+            background: rgba(255,140,66,0.2);
+            border-color: var(--orange);
+            box-shadow: 0 6px 20px rgba(255,140,66,0.4);
+        }
+
+        .category-nav-item:active {
+            transform: translateY(-2px) translateZ(10px) scale(1.02);
+        }
+
+        .category-nav-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--orange) 0%, #FF6B1A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 15px rgba(255,140,66,0.3);
+            transform-style: preserve-3d;
+        }
+
+        .category-nav-item:hover .category-nav-icon {
+            transform: scale(1.15) rotate(-8deg) translateZ(15px);
+            box-shadow: 0 10px 30px rgba(255,140,66,0.6);
+        }
+
+        .category-nav-item span {
+            font-size: 12px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
         }
 
         /* Loading */
@@ -811,6 +1344,19 @@
         @media (max-width: 768px) {
             .service-cards {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+
+            .location-section {
+                padding: 60px 20px;
             }
 
             .nav-container {
@@ -895,6 +1441,15 @@
             .footer {
                 padding: 40px 20px 20px;
             }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-section h3::after {
+                width: 40px;
+            }
         }
 
         /* Small phones */
@@ -934,6 +1489,49 @@
             .service-icon {
                 font-size: 40px;
             }
+
+            .back-to-top {
+                bottom: 90px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .nav-actions {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .whatsapp-btn,
+            .nav-contact {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
+            .sticky-category-nav {
+                top: 72px;
+                padding: 10px 16px;
+            }
+
+            .category-nav-item {
+                min-width: 80px;
+                padding: 10px 12px;
+            }
+
+            .category-nav-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
+            }
+
+            .nav-item span {
+                font-size: 10px;
+            }
+
+            .nav-item i {
+                font-size: 20px;
+            }
         }
 
         /* Responsive background swaps: serve lower-res / better-cropped images on smaller screens */
@@ -953,40 +1551,121 @@
 
         @media (max-width: 768px) {
             .landing-page {
-                background-image: linear-gradient(rgba(13,13,13,0.85), rgba(13,13,13,0.85)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=60');
-                background-position: center top;
+                background-image: linear-gradient(rgba(13,13,13,0.75), rgba(13,13,13,0.82)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=75');
+                background-position: center center;
             }
 
             .menu-app {
-                background-image: linear-gradient(rgba(13,13,13,0.92), rgba(13,13,13,0.92)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=60');
-                background-position: center top;
+                background-image: linear-gradient(rgba(13,13,13,0.82), rgba(13,13,13,0.88)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=75');
+                background-position: center center;
             }
 
             .hero {
-                background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=60');
-                background-position: center top;
+                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=75');
+                background-position: center center;
             }
         }
 
         @media (max-width: 480px) {
             .landing-page {
-                background-image: linear-gradient(rgba(13,13,13,0.9), rgba(13,13,13,0.9)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=480&q=50');
-                background-position: center top;
+                background-image: linear-gradient(rgba(13,13,13,0.75), rgba(13,13,13,0.85)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=480&q=80');
+                background-position: center center;
             }
 
             .menu-app {
-                background-image: linear-gradient(rgba(13,13,13,0.92), rgba(13,13,13,0.92)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=480&q=50');
-                background-position: center top;
+                background-image: linear-gradient(rgba(13,13,13,0.80), rgba(13,13,13,0.88)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=480&q=80');
+                background-position: center center;
             }
 
             .hero {
-                background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=480&q=50');
-                background-position: center top;
+                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=480&q=80');
+                background-position: center center;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Structured Data - Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "De-Eminent Eatery",
+      "image": "https://deeminenteatery.com/LOGO.PNG",
+      "@id": "https://deeminenteatery.com",
+      "url": "https://deeminenteatery.com",
+      "telephone": "+2347039539167",
+      "priceRange": "₦500 - ₦5000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "54 Port Harcourt Road",
+        "addressLocality": "Chokocho Etche",
+        "addressRegion": "Rivers State",
+        "postalCode": "",
+        "addressCountry": "NG"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 4.828844,
+        "longitude": 7.011863
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "22:00"
+        }
+      ],
+      "servesCuisine": "Nigerian",
+      "acceptsReservations": "True",
+      "menu": "https://deeminenteatery.com/#menu",
+      "sameAs": [
+        "https://facebook.com/deeminenteatery",
+        "https://instagram.com/deeminenteatery",
+        "https://twitter.com/deeminenteatery",
+        "https://wa.me/2347039539167"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "150"
+      },
+      "description": "De-Eminent Eatery offers authentic Nigerian cuisine, fast food, and professional catering services in Port Harcourt. A Pinch of Passion in every dish."
+    }
+    </script>
+
+    <!-- Breadcrumb Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://deeminenteatery.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Menu",
+        "item": "https://deeminenteatery.com/#menu"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Catering",
+        "item": "https://deeminenteatery.com/#catering"
+      }]
+    }
+    </script>
+
     <div id="root"></div>
 
     <script type="text/babel">
@@ -1001,12 +1680,20 @@
             { id: 4, name: 'Coconut Rice with Prawns', category: 'rice', price: 3200, description: 'Aromatic coconut rice served with succulent prawns', icon: '🍤' },
             { id: 5, name: 'Ofada Rice with Ayamase', category: 'rice', price: 3000, description: 'Authentic ofada rice with spicy green pepper sauce', icon: '🌶️' },
 
-            // Soups & Swallow
-            { id: 6, name: 'Egusi Soup with Pounded Yam', category: 'soups', price: 3500, description: 'Rich egusi soup with assorted meat and fresh pounded yam', icon: '🍲' },
-            { id: 7, name: 'Ogbono Soup with Fufu', category: 'soups', price: 3200, description: 'Delicious draw soup made from ogbono seeds with smooth fufu', icon: '🥘' },
-            { id: 8, name: 'Banga Soup with Starch', category: 'soups', price: 3800, description: 'Palm nut soup served with traditional white starch', icon: '🥣' },
-            { id: 9, name: 'Afang Soup with Eba', category: 'soups', price: 3600, description: 'Nutritious vegetable soup with fresh eba', icon: '🥗' },
-            { id: 10, name: 'Edikang Ikong with Semo', category: 'soups', price: 4000, description: 'Premium vegetable soup with semovita', icon: '🍵' },
+            // Soups
+            { id: 6, name: 'Egusi Soup', category: 'soups', price: 2500, description: 'Rich egusi soup with assorted meat and fresh vegetables', icon: '🍲' },
+            { id: 7, name: 'Ogbono Soup', category: 'soups', price: 2200, description: 'Delicious draw soup made from ogbono seeds', icon: '🥘' },
+            { id: 8, name: 'Banga Soup', category: 'soups', price: 2800, description: 'Palm nut soup with assorted meat', icon: '🥣' },
+            { id: 9, name: 'Afang Soup', category: 'soups', price: 2600, description: 'Nutritious vegetable soup with waterleaf', icon: '🥗' },
+            { id: 10, name: 'Edikang Ikong', category: 'soups', price: 3000, description: 'Premium vegetable soup with ugu and waterleaf', icon: '🍵' },
+
+            // Swallow
+            { id: 34, name: 'Pounded Yam', category: 'swallow', price: 1000, description: 'Freshly pounded yam, smooth and stretchy', icon: '🥘' },
+            { id: 35, name: 'Fufu', category: 'swallow', price: 800, description: 'Traditional cassava fufu', icon: '🥘' },
+            { id: 36, name: 'Eba (Garri)', category: 'swallow', price: 500, description: 'Classic eba made from garri', icon: '🥘' },
+            { id: 37, name: 'Semovita', category: 'swallow', price: 800, description: 'Smooth semovita swallow', icon: '🥘' },
+            { id: 38, name: 'Starch', category: 'swallow', price: 800, description: 'Traditional white starch', icon: '🥘' },
+            { id: 39, name: 'Amala', category: 'swallow', price: 800, description: 'Yam flour swallow', icon: '🥘' },
 
             // Nigerian Specials
             { id: 11, name: 'Pepper Soup', category: 'specials', price: 2500, description: 'Spicy aromatic soup with your choice of goat meat, fish, or chicken', icon: '🌶️' },
@@ -1045,7 +1732,8 @@
         const categories = [
             { id: 'all', name: 'All', icon: '🍽️' },
             { id: 'rice', name: 'Rice Dishes', icon: '🍚' },
-            { id: 'soups', name: 'Soups & Swallow', icon: '🍲' },
+            { id: 'soups', name: 'Soups', icon: '🍲' },
+            { id: 'swallow', name: 'Swallow', icon: '🥘' },
             { id: 'specials', name: 'Nigerian Specials', icon: '🌶️' },
             { id: 'smallchops', name: 'Small Chops', icon: '🥟' },
             { id: 'shawarma', name: 'Shawarma & Pizza', icon: '🍕' },
@@ -1091,6 +1779,8 @@
         function MenuApp({ onBack }) {
             const [activeCategory, setActiveCategory] = useState('all');
             const [filteredItems, setFilteredItems] = useState(menuData);
+            const [showBackToTop, setShowBackToTop] = useState(false);
+            const [activeNav, setActiveNav] = useState('home');
 
             useEffect(() => {
                 if (activeCategory === 'all') {
@@ -1099,6 +1789,44 @@
                     setFilteredItems(menuData.filter(item => item.category === activeCategory));
                 }
             }, [activeCategory]);
+
+            useEffect(() => {
+                const handleScroll = () => {
+                    setShowBackToTop(window.scrollY > 300);
+
+                    // Update active nav based on scroll position
+                    const sections = ['hero', 'category-section', 'testimonials', 'location-section', 'footer'];
+                    const scrollPos = window.scrollY + 200;
+
+                    for (let section of sections) {
+                        const element = document.querySelector(`.${section}`);
+                        if (element) {
+                            const offsetTop = element.offsetTop;
+                            const offsetBottom = offsetTop + element.offsetHeight;
+                            if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
+                                if (section === 'hero') setActiveNav('home');
+                                else if (section === 'category-section') setActiveNav('menu');
+                                else if (section === 'testimonials') setActiveNav('testimonials');
+                                else if (section === 'location-section') setActiveNav('contact');
+                            }
+                        }
+                    }
+                };
+
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            const scrollToTop = () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            const scrollToSection = (sectionClass) => {
+                const element = document.querySelector(`.${sectionClass}`);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            };
 
             const orderItem = (itemName) => {
                 const message = `Hello! I'd like to order ${itemName} from De-Eminent Eatery.`;
@@ -1116,11 +1844,29 @@
                             <div className="nav-logo">
                                 <img src="LOGO.PNG" alt="De-Eminent" />
                             </div>
-                            <a href="tel:07039539167" className="nav-contact">
-                                <i className="fas fa-phone"></i> Call Now
-                            </a>
+                            <div className="nav-actions">
+                                <a href="tel:07039539167" className="nav-contact">
+                                    <i className="fas fa-phone"></i> Call Now
+                                </a>
+                            </div>
                         </div>
                     </nav>
+
+                    {/* Sticky Category Nav */}
+                    <div className="sticky-category-nav">
+                        <div className="category-nav-container">
+                            {categories.map(cat => (
+                                <div
+                                    key={cat.id}
+                                    className={`category-nav-item ${activeCategory === cat.id ? 'active' : ''}`}
+                                    onClick={() => setActiveCategory(cat.id)}
+                                >
+                                    <div className="category-nav-icon">{cat.icon}</div>
+                                    <span>{cat.name}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
 
                     {/* Hero */}
                     <div className="hero">
@@ -1131,23 +1877,6 @@
                                 Explore Menu
                             </button>
                         </div>
-                    </div>
-
-                    {/* Promo Banner */}
-                    <div className="promo-banner">
-                        <div className="promo-content">
-                            <h2>Delicious food with exciting discounts you'll love!</h2>
-                            <div className="rating">
-                                <i className="fas fa-star"></i>
-                                <i className="fas fa-star"></i>
-                                <i className="fas fa-star"></i>
-                                <i className="fas fa-star"></i>
-                                <i className="fas fa-star"></i>
-                            </div>
-                            <p>Premium quality ingredients, authentic recipes, and unbeatable taste</p>
-                            <div className="discount">Grab Flat 50% OFF - Limited Time!</div>
-                        </div>
-                        <div className="promo-image">🍽️</div>
                     </div>
 
                     {/* Excellence Divider */}
@@ -1161,38 +1890,66 @@
                             <h2>Choose Our Menu</h2>
                         </div>
 
-                        {/* Category Pills */}
-                        <div className="category-pills">
-                            {categories.map(cat => (
-                                <button
-                                    key={cat.id}
-                                    className={`category-pill ${activeCategory === cat.id ? 'active' : ''}`}
-                                    onClick={() => setActiveCategory(cat.id)}
-                                >
-                                    {cat.icon} {cat.name}
-                                </button>
-                            ))}
-                        </div>
 
-                        {/* Menu Items - ONE PER LINE */}
-                        <div className="menu-items">
-                            {filteredItems.map(item => (
-                                <div key={item.id} className="menu-item">
-                                    <div className="menu-item-image">{item.icon}</div>
-                                    <div className="menu-item-content">
-                                        <div className="organic-label">Organic Food</div>
-                                        <h3 className="menu-item-name">{item.name}</h3>
-                                        <p className="menu-item-description">{item.description}</p>
-                                        <div className="menu-item-footer">
-                                            <div className="menu-item-price">₦{item.price.toLocaleString()}/-</div>
-                                            <button className="discover-btn" onClick={() => orderItem(item.name)}>
-                                                Discover Our Menu
-                                            </button>
+                        {/* Menu Items - Organized by Category */}
+                        {activeCategory === 'all' ? (
+                            // Show all items grouped by category
+                            <>
+                                {categories.filter(cat => cat.id !== 'all').map(category => {
+                                    const categoryItems = menuData.filter(item => item.category === category.id);
+                                    if (categoryItems.length === 0) return null;
+
+                                    return (
+                                        <div key={category.id}>
+                                            <div className="category-header">
+                                                <h3>
+                                                    <span className="category-emoji">{category.icon}</span>
+                                                    {category.name}
+                                                </h3>
+                                            </div>
+                                            <div className="menu-items">
+                                                {categoryItems.map(item => (
+                                                    <div key={item.id} className="menu-item">
+                                                        <div className="menu-item-image">{item.icon}</div>
+                                                        <div className="menu-item-content">
+                                                            <div className="organic-label">Organic Food</div>
+                                                            <h3 className="menu-item-name">{item.name}</h3>
+                                                            <p className="menu-item-description">{item.description}</p>
+                                                            <div className="menu-item-footer">
+                                                                <div className="menu-item-price">₦{item.price.toLocaleString()}/-</div>
+                                                                <button className="discover-btn" onClick={() => orderItem(item.name)}>
+                                                                    <i className="fab fa-whatsapp"></i> Order Now
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </>
+                        ) : (
+                            // Show only selected category
+                            <div className="menu-items">
+                                {filteredItems.map(item => (
+                                    <div key={item.id} className="menu-item">
+                                        <div className="menu-item-image">{item.icon}</div>
+                                        <div className="menu-item-content">
+                                            <div className="organic-label">Organic Food</div>
+                                            <h3 className="menu-item-name">{item.name}</h3>
+                                            <p className="menu-item-description">{item.description}</p>
+                                            <div className="menu-item-footer">
+                                                <div className="menu-item-price">₦{item.price.toLocaleString()}/-</div>
+                                                <button className="discover-btn" onClick={() => orderItem(item.name)}>
+                                                    <i className="fab fa-whatsapp"></i> Order Now
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
 
                     {/* Testimonials */}
@@ -1315,6 +2072,57 @@
                         </div>
                     </div>
 
+                    {/* Location Section */}
+                    <div className="location-section">
+                        <div className="location-container">
+                            <div className="location-header">
+                                <h2>Visit Us Today</h2>
+                                <p>Find us at our location in Port Harcourt</p>
+                            </div>
+                            <div className="location-content">
+                                <div className="contact-cards-grid">
+                                    <div className="location-item">
+                                        <div className="location-icon">
+                                            <i className="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div className="location-details">
+                                            <h4>Our Address</h4>
+                                            <p>54 Port Harcourt Road<br/>Chokocho Etche<br/>Port Harcourt, Nigeria</p>
+                                        </div>
+                                    </div>
+                                    <div className="location-item">
+                                        <div className="location-icon">
+                                            <i className="fas fa-phone"></i>
+                                        </div>
+                                        <div className="location-details">
+                                            <h4>Call Us</h4>
+                                            <p><a href="tel:07039539167">0703 953 9167</a></p>
+                                        </div>
+                                    </div>
+                                    <div className="location-item">
+                                        <div className="location-icon">
+                                            <i className="fas fa-clock"></i>
+                                        </div>
+                                        <div className="location-details">
+                                            <h4>Opening Hours</h4>
+                                            <p>Mon - Sat: 8AM - 10PM<br/><span style={{color: 'rgba(255,140,66,0.9)'}}>Sunday: Closed</span></p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div className="map-container">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.819647373456!2d7.011863!3d4.828844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwNDknNDQuMCJOIDfCsDAwJzQyLjciRQ!5e0!3m2!1sen!2sng!4v1234567890"
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                        title="De-Eminent Eatery Location"
+                                    ></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     {/* Footer */}
                     <footer className="footer">
                         <div className="footer-content">
@@ -1323,11 +2131,20 @@
                                     <img src="LOGO.PNG" alt="De-Eminent" />
                                 </div>
                                 <p>Premium Nigerian Fast Food Restaurant and Catering Service in Port Harcourt. A Pinch of Passion in every dish.</p>
+                                <h3 style={{marginTop: '30px'}}>Follow Us</h3>
                                 <div className="social-icons">
-                                    <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
-                                    <a href="#" className="social-icon"><i className="fab fa-instagram"></i></a>
-                                    <a href="#" className="social-icon"><i className="fab fa-twitter"></i></a>
-                                    <a href="https://wa.me/2347039539167" className="social-icon"><i className="fab fa-whatsapp"></i></a>
+                                    <a href="https://facebook.com/deeminenteatery" target="_blank" rel="noopener noreferrer" className="social-icon" title="Facebook">
+                                        <i className="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://instagram.com/deeminenteatery" target="_blank" rel="noopener noreferrer" className="social-icon" title="Instagram">
+                                        <i className="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="https://twitter.com/deeminenteatery" target="_blank" rel="noopener noreferrer" className="social-icon" title="Twitter">
+                                        <i className="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="https://wa.me/2347039539167" target="_blank" rel="noopener noreferrer" className="social-icon" title="WhatsApp">
+                                        <i className="fab fa-whatsapp"></i>
+                                    </a>
                                 </div>
                             </div>
 
@@ -1335,36 +2152,77 @@
                                 <h3>Quick Links</h3>
                                 <a href="#home">Home</a>
                                 <a href="#menu">Menu</a>
-                                <a href="#about">About</a>
+                                <a href="#about">About Us</a>
+                                <a href="#testimonials">Testimonials</a>
                                 <a href="#contact">Contact</a>
                             </div>
 
                             <div className="footer-section">
                                 <h3>Services</h3>
-                                <a href="#">Restaurant</a>
-                                <a href="#">Fast Food</a>
-                                <a href="#">Catering</a>
-                                <a href="#">Delivery</a>
+                                <a href="#">Dine In</a>
+                                <a href="#">Takeaway</a>
+                                <a href="#">Home Delivery</a>
+                                <a href="#">Event Catering</a>
+                                <a href="#">Corporate Catering</a>
                             </div>
 
                             <div className="footer-section">
-                                <h3>Contact</h3>
-                                <p>54 Port Harcourt Road</p>
-                                <p>Chokocho Etche</p>
-                                <p>Port Harcourt</p>
-                                <a href="tel:07039539167">07039539167</a>
-                                <p>Mon-Sat: 8AM-10PM</p>
+                                <h3>Contact Info</h3>
+                                <p><i className="fas fa-map-marker-alt" style={{color: 'var(--orange)', marginRight: '10px'}}></i>54 Port Harcourt Road<br/>Chokocho Etche, Port Harcourt</p>
+                                <p><i className="fas fa-phone" style={{color: 'var(--orange)', marginRight: '10px'}}></i><a href="tel:07039539167">0703 953 9167</a></p>
+                                <p><i className="fas fa-clock" style={{color: 'var(--orange)', marginRight: '10px'}}></i>Mon-Sat: 8AM - 10PM<br/>Sunday: Closed</p>
                             </div>
                         </div>
 
                         <div className="footer-bottom">
-                            <p>&copy; 2026 De-Eminent Eatery. All rights reserved.</p>
+                            <p>&copy; 2026 De-Eminent Eatery. All rights reserved. | Crafted with passion for authentic Nigerian cuisine</p>
                         </div>
                     </footer>
 
-                    {/* WhatsApp Float */}
-                    <div className="whatsapp-float" onClick={() => window.open('https://wa.me/2347039539167?text=Hello! I\'d like to place an order', '_blank')}>
-                        <i className="fab fa-whatsapp"></i>
+                    {/* Back to Top Button */}
+                    <div className={`back-to-top ${showBackToTop ? 'show' : ''}`} onClick={scrollToTop}>
+                        <i className="fas fa-arrow-up"></i>
+                    </div>
+
+                    {/* Bottom Navigation Bar */}
+                    <div className="bottom-nav">
+                        <div className="bottom-nav-container">
+                            <div
+                                className={`nav-item ${activeNav === 'home' ? 'active' : ''}`}
+                                onClick={() => scrollToSection('hero')}
+                            >
+                                <i className="fas fa-home"></i>
+                                <span>Home</span>
+                            </div>
+                            <div
+                                className={`nav-item ${activeNav === 'menu' ? 'active' : ''}`}
+                                onClick={() => scrollToSection('category-section')}
+                            >
+                                <i className="fas fa-utensils"></i>
+                                <span>Menu</span>
+                            </div>
+                            <div
+                                className={`nav-item ${activeNav === 'testimonials' ? 'active' : ''}`}
+                                onClick={() => scrollToSection('testimonials')}
+                            >
+                                <i className="fas fa-star"></i>
+                                <span>Reviews</span>
+                            </div>
+                            <div
+                                className={`nav-item ${activeNav === 'contact' ? 'active' : ''}`}
+                                onClick={() => scrollToSection('location-section')}
+                            >
+                                <i className="fas fa-map-marker-alt"></i>
+                                <span>Location</span>
+                            </div>
+                            <div
+                                className="nav-item"
+                                onClick={() => window.open('https://wa.me/2347039539167?text=Hello! I\'d like to place an order', '_blank')}
+                            >
+                                <i className="fab fa-whatsapp"></i>
+                                <span>Order</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             );
