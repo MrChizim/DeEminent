@@ -849,6 +849,122 @@
             font-size: 50px;
         }
 
+        /* Payment Methods Section */
+        .payment-methods-section {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, rgba(255,140,66,0.12) 0%, rgba(255,140,66,0.05) 100%);
+            border-top: 2px solid rgba(255,140,66,0.3);
+            border-bottom: 2px solid rgba(255,140,66,0.3);
+            margin: 0;
+        }
+
+        .payment-methods-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .payment-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .payment-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 4vw, 48px);
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .payment-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+        }
+
+        .payment-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .payment-method-card {
+            background: linear-gradient(135deg, rgba(13,13,13,0.8) 0%, rgba(13,13,13,0.6) 100%);
+            border: 2px solid rgba(255,140,66,0.4);
+            border-radius: 16px;
+            padding: 35px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .payment-method-card:hover {
+            background: linear-gradient(135deg, rgba(13,13,13,0.9) 0%, rgba(13,13,13,0.7) 100%);
+            border-color: var(--orange);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(255,140,66,0.3);
+        }
+
+        .payment-method-icon {
+            font-size: 48px;
+            color: var(--orange);
+            margin-bottom: 20px;
+        }
+
+        .payment-method-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .payment-method-card p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .payment-details {
+            background: rgba(255,140,66,0.1);
+            border: 1px solid rgba(255,140,66,0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .payment-details strong {
+            color: var(--orange);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .payment-steps {
+            background: rgba(255,140,66,0.08);
+            border-left: 4px solid var(--orange);
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .payment-steps h3 {
+            color: var(--orange);
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .payment-steps ol {
+            color: rgba(255,255,255,0.8);
+            line-height: 2;
+            padding-left: 25px;
+        }
+
+        .payment-steps li {
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
         /* Location Map */
         .location-section {
             padding: 100px 40px;
@@ -1300,6 +1416,14 @@
             .category-nav-item {
                 min-width: 80px;
             }
+
+            .payment-methods-section {
+                padding: 60px 24px;
+            }
+
+            .payment-methods-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Mobile */
@@ -1334,6 +1458,35 @@
 
             .location-section {
                 padding: 60px 20px;
+            }
+
+            .payment-methods-section {
+                padding: 50px 20px;
+            }
+
+            .payment-header h2 {
+                font-size: 28px;
+            }
+
+            .payment-methods-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .payment-method-card {
+                padding: 25px 20px;
+            }
+
+            .payment-steps {
+                padding: 20px;
+            }
+
+            .payment-steps h3 {
+                font-size: 18px;
+            }
+
+            .payment-steps ol {
+                font-size: 14px;
             }
 
             .nav-container {
@@ -2338,6 +2491,7 @@
             const [activeCategory, setActiveCategory] = useState('all');
             const [filteredItems, setFilteredItems] = useState(menuData);
             const [activeNav, setActiveNav] = useState('home');
+            const [scrollCategory, setScrollCategory] = useState('all');
             const [cart, setCart] = useState([]);
             const [showCart, setShowCart] = useState(false);
             const [toast, setToast] = useState({ show: false, message: '' });
@@ -2435,11 +2589,29 @@
                             }
                         }
                     }
+
+                    // Update sticky nav category highlight when scrolling in ALL view
+                    if (activeCategory === 'all') {
+                        const categorySection = document.querySelector('.category-section');
+                        if (categorySection) {
+                            const children = categorySection.querySelectorAll('[data-category]');
+                            const scrollPos = window.scrollY + 400;
+
+                            children.forEach(child => {
+                                const offsetTop = child.offsetTop;
+                                const offsetBottom = offsetTop + child.offsetHeight;
+                                if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
+                                    const category = child.getAttribute('data-category');
+                                    setScrollCategory(category);
+                                }
+                            });
+                        }
+                    }
                 };
 
                 window.addEventListener('scroll', handleScroll);
                 return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
+            }, [activeCategory]);
 
             useEffect(() => {
                 // Scroll category nav to show "All" button on load
@@ -2475,6 +2647,9 @@
                                 <img src="LOGO.PNG" alt="De-Eminent" />
                             </div>
                             <div className="nav-actions">
+                                <button className="nav-contact" onClick={() => scrollToSection('payment-methods-section')} style={{background: 'var(--orange)', border: 'none', cursor: 'pointer'}}>
+                                    <i className="fas fa-credit-card"></i> Pay
+                                </button>
                                 <a href="tel:07039539167" className="nav-contact">
                                     <i className="fas fa-phone"></i> Call Now
                                 </a>
@@ -2485,18 +2660,21 @@
                     {/* Sticky Category Nav */}
                     <div className="sticky-category-nav">
                         <div className="category-nav-container">
-                            {categories.map(cat => (
-                                <div
-                                    key={cat.id}
-                                    className={`category-nav-item ${activeCategory === cat.id ? 'active' : ''}`}
-                                    onClick={() => setActiveCategory(cat.id)}
-                                >
-                                    <div className="category-nav-icon">
-                                        <img src={cat.image} alt={cat.name} />
+                            {categories.map(cat => {
+                                const isActive = activeCategory === cat.id || (activeCategory === 'all' && scrollCategory === cat.id);
+                                return (
+                                    <div
+                                        key={cat.id}
+                                        className={`category-nav-item ${isActive ? 'active' : ''}`}
+                                        onClick={() => setActiveCategory(cat.id)}
+                                    >
+                                        <div className="category-nav-icon">
+                                            <img src={cat.image} alt={cat.name} />
+                                        </div>
+                                        <span>{cat.name}</span>
                                     </div>
-                                    <span>{cat.name}</span>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
 
@@ -2532,7 +2710,7 @@
                                     if (categoryItems.length === 0) return null;
 
                                     return (
-                                        <div key={category.id}>
+                                        <div key={category.id} data-category={category.id}>
                                             <div className="category-header">
                                                 <h3>
                                                     <span className="category-header-img">
@@ -2760,8 +2938,69 @@
                                             <p>Mon - Sat: 8AM - 10PM<br/><span style={{color: 'rgba(255,140,66,0.9)'}}>Sunday: Closed</span></p>
                                         </div>
                                     </div>
-                                    
                                 </div>
+
+                                {/* Payment Methods Section */}
+                                <div className="payment-methods-section">
+                                    <div className="payment-methods-container">
+                                        <div className="payment-header">
+                                            <h2>How to Pay</h2>
+                                            <p>We accept multiple payment methods for your convenience</p>
+                                        </div>
+                                        
+                                        <div className="payment-methods-grid">
+                                            <div className="payment-method-card">
+                                                <div className="payment-method-icon">
+                                                    <i className="fas fa-mobile-alt"></i>
+                                                </div>
+                                                <h3>WhatsApp Order</h3>
+                                                <p>Send your order via WhatsApp and pay on delivery</p>
+                                                <a href="https://wa.me/2347039539167?text=Hello,%20I%20would%20like%20to%20place%20an%20order" target="_blank" rel="noopener noreferrer" className="cta-btn" style={{display: 'inline-block', marginTop: '10px'}}>
+                                                    <i className="fab fa-whatsapp"></i> Order via WhatsApp
+                                                </a>
+                                            </div>
+
+                                            <div className="payment-method-card">
+                                                <div className="payment-method-icon">
+                                                    <i className="fas fa-bank"></i>
+                                                </div>
+                                                <h3>Bank Transfer</h3>
+                                                <p>Direct bank transfer to our account</p>
+                                                <div className="payment-details">
+                                                    <strong>Account Number:</strong>
+                                                    0012345678
+                                                    <strong style={{marginTop: '10px'}}>Bank:</strong>
+                                                    GTBank
+                                                    <strong style={{marginTop: '10px'}}>Name:</strong>
+                                                    De-Eminent Eatery
+                                                </div>
+                                            </div>
+
+                                            <div className="payment-method-card">
+                                                <div className="payment-method-icon">
+                                                    <i className="fas fa-phone"></i>
+                                                </div>
+                                                <h3>Call to Order</h3>
+                                                <p>Call us and arrange payment method</p>
+                                                <a href="tel:07039539167" className="cta-btn" style={{display: 'inline-block', marginTop: '10px'}}>
+                                                    <i className="fas fa-phone"></i> Call: 0703 953 9167
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div className="payment-steps">
+                                            <h3><i className="fas fa-clipboard-list"></i> How to Order & Pay</h3>
+                                            <ol>
+                                                <li><strong>Browse Our Menu:</strong> Select your favorite dishes from our menu</li>
+                                                <li><strong>Choose Payment Method:</strong> Select WhatsApp, Bank Transfer, or Call us</li>
+                                                <li><strong>Confirm Order:</strong> Send your order details and preferred payment method</li>
+                                                <li><strong>Complete Payment:</strong> Pay via bank transfer or on delivery</li>
+                                                <li><strong>Enjoy Your Food:</strong> Receive your order fresh and delicious!</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div className="map-container">
                                     <iframe
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.819647373456!2d7.011863!3d4.828844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwNDknNDQuMCJOIDfCsDAwJzQyLjciRQ!5e0!3m2!1sen!2sng!4v1234567890"
