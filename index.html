@@ -372,7 +372,7 @@
         /* Hero */
         .hero {
             min-height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=80');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('hero.JPG');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -1532,9 +1532,11 @@
             }
 
             .nav-contact {
-                order: 3;
-                padding: 10px 16px;
-                font-size: 13px;
+                display: none;
+            }
+
+            .nav-actions {
+                display: none;
             }
 
             .promo-banner {
@@ -1769,20 +1771,8 @@
                 height: 32px;
             }
 
-            .nav-contact,
             .back-btn {
                 padding: 7px 10px;
-                font-size: 12px;
-            }
-
-            .nav-actions {
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-
-            .whatsapp-btn,
-            .nav-contact {
-                padding: 8px 14px;
                 font-size: 12px;
             }
 
@@ -1866,40 +1856,40 @@
             }
 
             .hero {
-                background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200&q=60');
+                background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('hero.JPG');
             }
         }
 
         @media (max-width: 768px) {
             .landing-page {
-                background-image: linear-gradient(rgba(13,13,13,0.55), rgba(13,13,13,0.65)), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1200&q=85');
+                background-image: linear-gradient(rgba(13,13,13,0.55), rgba(13,13,13,0.65)), url('background.JPG');
                 background-position: center center;
             }
 
             .menu-app {
-                background-image: linear-gradient(rgba(13,13,13,0.60), rgba(13,13,13,0.70)), url('https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=1200&q=85');
+                background-image: linear-gradient(rgba(13,13,13,0.60), rgba(13,13,13,0.70)), url('background.JPG');
                 background-position: center center;
             }
 
             .hero {
-                background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200&q=85');
+                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('hero.JPG');
                 background-position: center center;
             }
         }
 
         @media (max-width: 480px) {
             .landing-page {
-                background-image: linear-gradient(rgba(13,13,13,0.55), rgba(13,13,13,0.68)), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1000&q=85');
+                background-image: linear-gradient(rgba(13,13,13,0.55), rgba(13,13,13,0.68)), url('background.JPG');
                 background-position: center center;
             }
 
             .menu-app {
-                background-image: linear-gradient(rgba(13,13,13,0.60), rgba(13,13,13,0.70)), url('https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=1000&q=85');
+                background-image: linear-gradient(rgba(13,13,13,0.60), rgba(13,13,13,0.70)), url('background.JPG');
                 background-position: center center;
             }
 
             .hero {
-                background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1000&q=85');
+                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('hero.JPG');
                 background-position: center center;
             }
         }
