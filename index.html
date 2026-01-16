@@ -25,15 +25,19 @@
     <meta property="og:title" content="De-Eminent Eatery | Best Nigerian Restaurant in Port Harcourt">
     <meta property="og:description" content="Authentic Nigerian cuisine, fast food, and professional catering services. Order now for delicious jollof rice, egusi soup, shawarma, and more!">
     <meta property="og:image" content="https://deeminenteatery.com/LOGO.PNG">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="De-Eminent Eatery Logo - Nigerian Restaurant">
     <meta property="og:site_name" content="De-Eminent Eatery">
     <meta property="og:locale" content="en_NG">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://deeminenteatery.com/">
-    <meta property="twitter:title" content="De-Eminent Eatery | Best Nigerian Restaurant in Port Harcourt">
-    <meta property="twitter:description" content="Authentic Nigerian cuisine, fast food, and professional catering services. Order now!">
-    <meta property="twitter:image" content="https://deeminenteatery.com/LOGO.PNG">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://deeminenteatery.com/">
+    <meta name="twitter:title" content="De-Eminent Eatery | Best Nigerian Restaurant in Port Harcourt">
+    <meta name="twitter:description" content="Authentic Nigerian cuisine, fast food, and professional catering services. Order now!">
+    <meta name="twitter:image" content="https://deeminenteatery.com/LOGO.PNG">
+    <meta name="twitter:image:alt" content="De-Eminent Eatery Logo">
 
     <!-- Business Information -->
     <meta name="geo.region" content="NG-RI">
@@ -90,7 +94,7 @@
             align-items: center;
             justify-content: center;
             padding: 40px 20px;
-            background: linear-gradient(rgba(13,13,13,0.85), rgba(13,13,13,0.85)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=80');
+            background: linear-gradient(rgba(13,13,13,0.85), rgba(13,13,13,0.85)), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -292,7 +296,7 @@
         /* ===== MENU APP ===== */
         .menu-app {
             min-height: 100vh;
-            background: linear-gradient(rgba(13,13,13,0.92), rgba(13,13,13,0.92)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=80');
+            background: linear-gradient(rgba(13,13,13,0.92), rgba(13,13,13,0.92)), url('https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -360,7 +364,7 @@
         /* Hero */
         .hero {
             min-height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&q=80');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -571,18 +575,24 @@
         }
 
         .menu-item-image {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             border-radius: 12px;
             background: linear-gradient(135deg, var(--orange) 0%, #FF6B1A 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
             position: relative;
             overflow: hidden;
             box-shadow: 0 6px 15px rgba(255,140,66,0.3);
             transition: all 0.4s ease;
+            flex-shrink: 0;
+        }
+
+        .menu-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .menu-item:hover .menu-item-image {
@@ -592,13 +602,7 @@
 
         .menu-item-content {
             flex: 1;
-        }
-
-        .organic-label {
-            font-style: italic;
-            color: var(--orange);
-            font-size: 12px;
-            margin-bottom: 8px;
+            min-width: 0;
         }
 
         .menu-item-name {
@@ -669,7 +673,7 @@
 
         .category-header h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
+            font-size: 28px;
             color: var(--white);
             font-weight: 700;
             display: flex;
@@ -677,8 +681,22 @@
             gap: 15px;
         }
 
-        .category-header h3 .category-emoji {
-            font-size: 40px;
+        .category-header-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(255,140,66,0.3);
+            flex-shrink: 0;
+        }
+
+        .category-header-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .category-header:first-of-type {
@@ -1127,42 +1145,6 @@
             white-space: nowrap;
         }
 
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 55px;
-            height: 55px;
-            background: var(--orange);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            box-shadow: 0 5px 25px rgba(255,140,66,0.5);
-            cursor: pointer;
-            z-index: 999;
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .back-to-top:hover {
-            background: var(--white);
-            color: var(--orange);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 35px rgba(255,140,66,0.6);
-        }
-
         .nav-actions {
             display: flex;
             gap: 10px;
@@ -1249,16 +1231,22 @@
         }
 
         .category-nav-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             background: linear-gradient(135deg, var(--orange) 0%, #FF6B1A 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255,140,66,0.3);
+            overflow: hidden;
+        }
+
+        .category-nav-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .category-nav-item:hover .category-nav-icon {
@@ -1267,11 +1255,14 @@
         }
 
         .category-nav-item span {
-            font-size: 11px;
+            font-size: 10px;
             color: rgba(255,255,255,0.9);
             font-weight: 600;
             text-align: center;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 80px;
         }
 
         /* Loading */
@@ -1290,13 +1281,12 @@
             }
 
             .menu-item {
-                grid-template-columns: 120px 1fr;
+                grid-template-columns: 100px 1fr;
             }
 
             .menu-item-image {
-                width: 120px;
-                height: 120px;
-                font-size: 48px;
+                width: 100px;
+                height: 100px;
             }
 
             .hero {
@@ -1305,6 +1295,10 @@
 
             .promo-banner {
                 max-width: 700px;
+            }
+
+            .category-nav-item {
+                min-width: 80px;
             }
         }
 
@@ -1380,36 +1374,77 @@
             .menu-item {
                 grid-template-columns: 1fr;
                 text-align: center;
-                padding: 15px;
+                padding: 12px;
             }
 
             .menu-item-image {
                 margin: 0 auto;
-                width: 90px;
-                height: 90px;
-                font-size: 36px;
+                width: 100%;
+                height: 120px;
+                border-radius: 10px;
+            }
+
+            .menu-item-content {
+                padding-top: 10px;
+            }
+
+            .menu-item-name {
+                font-size: 14px;
+                line-height: 1.3;
+            }
+
+            .menu-item-description {
+                display: none;
             }
 
             .menu-item-footer {
                 flex-direction: column;
-                gap: 12px;
+                gap: 10px;
+            }
+
+            .menu-item-price {
+                font-size: 16px;
             }
 
             .category-section {
-                padding: 40px 20px 60px;
+                padding: 30px 15px 60px;
             }
 
             .section-header {
-                margin-bottom: 35px;
+                margin-bottom: 25px;
             }
 
             .category-header {
-                margin: 50px 0 25px;
+                margin: 40px 0 20px;
+            }
+
+            .category-header h3 {
+                font-size: 22px;
+            }
+
+            .category-header-img {
+                width: 40px;
+                height: 40px;
             }
 
             .menu-items {
                 grid-template-columns: 1fr 1fr;
-                gap: 20px;
+                gap: 12px;
+            }
+
+            .category-nav-item {
+                min-width: 70px;
+                padding: 8px 6px;
+            }
+
+            .category-nav-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .category-nav-item span {
+                font-size: 9px;
+                max-width: 65px;
             }
 
             .testimonials-grid,
@@ -1523,25 +1558,36 @@
 
             .menu-items {
                 grid-template-columns: 1fr 1fr;
-                gap: 16px;
+                gap: 10px;
             }
 
             .menu-item {
-                padding: 12px;
+                padding: 10px;
             }
 
             .menu-item-image {
-                width: 75px;
-                height: 75px;
-                font-size: 30px;
+                width: 100%;
+                height: 100px;
             }
 
             .menu-item-name {
-                font-size: 18px;
+                font-size: 13px;
             }
 
             .menu-item-price {
-                font-size: 20px;
+                font-size: 15px;
+            }
+
+            .menu-item-buttons {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .add-to-tray-btn, .discover-btn {
+                padding: 8px 12px;
+                font-size: 9px;
+                width: 100%;
+                justify-content: center;
             }
 
             .nav-logo img {
@@ -1551,15 +1597,7 @@
             .nav-contact,
             .back-btn {
                 padding: 7px 10px;
-                font-size: 13px;
-            }
-
-            .back-to-top {
-                bottom: 85px;
-                right: 16px;
-                width: 48px;
-                height: 48px;
-                font-size: 18px;
+                font-size: 12px;
             }
 
             .nav-actions {
@@ -1569,54 +1607,51 @@
 
             .whatsapp-btn,
             .nav-contact {
-                padding: 8px 16px;
-                font-size: 13px;
+                padding: 8px 14px;
+                font-size: 12px;
             }
 
             .sticky-category-nav {
-                top: 58px;
-                padding: 10px 12px;
+                top: 56px;
+                padding: 8px 10px;
             }
 
             .category-nav-item {
-                min-width: 75px;
-                padding: 8px 10px;
-                gap: 4px;
+                min-width: 60px;
+                padding: 6px 4px;
+                gap: 3px;
             }
 
             .category-nav-icon {
-                width: 38px;
-                height: 38px;
-                font-size: 20px;
+                width: 36px;
+                height: 36px;
             }
 
             .category-nav-item span {
-                font-size: 10px;
+                font-size: 8px;
+                max-width: 55px;
             }
 
             .category-section {
-                padding: 35px 16px 55px;
+                padding: 25px 12px 55px;
             }
 
             .section-header h2 {
-                font-size: 26px;
+                font-size: 24px;
             }
 
             .category-header {
-                margin: 40px 0 20px;
+                margin: 35px 0 15px;
                 padding: 15px 0;
             }
 
             .category-header h3 {
-                font-size: 26px;
+                font-size: 20px;
             }
 
-            .category-header h3 .category-emoji {
-                font-size: 32px;
-            }
-
-            .menu-items {
-                gap: 16px;
+            .category-header-img {
+                width: 35px;
+                height: 35px;
             }
 
             .nav-item span {
@@ -1662,12 +1697,12 @@
 
         @media (max-width: 768px) {
             .landing-page {
-                background-image: linear-gradient(rgba(13,13,13,0.55), rgba(13,13,13,0.65)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=85');
+                background-image: linear-gradient(rgba(13,13,13,0.55), rgba(13,13,13,0.65)), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1200&q=85');
                 background-position: center center;
             }
 
             .menu-app {
-                background-image: linear-gradient(rgba(13,13,13,0.60), rgba(13,13,13,0.70)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=85');
+                background-image: linear-gradient(rgba(13,13,13,0.60), rgba(13,13,13,0.70)), url('https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=1200&q=85');
                 background-position: center center;
             }
 
@@ -1679,18 +1714,429 @@
 
         @media (max-width: 480px) {
             .landing-page {
-                background-image: linear-gradient(rgba(13,13,13,0.55), rgba(13,13,13,0.68)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1000&q=85');
+                background-image: linear-gradient(rgba(13,13,13,0.55), rgba(13,13,13,0.68)), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1000&q=85');
                 background-position: center center;
             }
 
             .menu-app {
-                background-image: linear-gradient(rgba(13,13,13,0.60), rgba(13,13,13,0.70)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1000&q=85');
+                background-image: linear-gradient(rgba(13,13,13,0.60), rgba(13,13,13,0.70)), url('https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=1000&q=85');
                 background-position: center center;
             }
 
             .hero {
                 background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1000&q=85');
                 background-position: center center;
+            }
+        }
+
+        /* ===== SHOPPING TRAY/CART ===== */
+        .cart-fab {
+            position: fixed;
+            bottom: 85px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--orange) 0%, #FF6B1A 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 6px 25px rgba(255,140,66,0.5);
+            cursor: pointer;
+            z-index: 998;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .cart-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 35px rgba(255,140,66,0.6);
+        }
+
+        .cart-fab.has-items {
+            animation: pulse-cart 2s infinite;
+        }
+
+        @keyframes pulse-cart {
+            0%, 100% { box-shadow: 0 6px 25px rgba(255,140,66,0.5); }
+            50% { box-shadow: 0 6px 35px rgba(255,140,66,0.8); }
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff3b3b;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            border: 2px solid var(--black);
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cart-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 420px;
+            height: 100%;
+            background: var(--black);
+            z-index: 1002;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            border-left: 2px solid rgba(255,140,66,0.3);
+        }
+
+        .cart-drawer.show {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 2px solid rgba(255,140,66,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,140,66,0.05);
+        }
+
+        .cart-header h2 {
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-header h2 i {
+            color: var(--orange);
+        }
+
+        .cart-close {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .cart-close:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .cart-empty i {
+            font-size: 60px;
+            color: rgba(255,140,66,0.3);
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            border: 1px solid rgba(255,140,66,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .cart-item:hover {
+            border-color: rgba(255,140,66,0.3);
+        }
+
+        .cart-item-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--orange) 0%, #FF6B1A 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .cart-item-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .cart-item-price {
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qty-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            border: 2px solid rgba(255,140,66,0.3);
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-btn:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+        }
+
+        .cart-item-qty {
+            font-weight: 700;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .cart-item-remove {
+            background: transparent;
+            border: none;
+            color: #ff5555;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .cart-item-remove:hover {
+            color: #ff3333;
+            transform: scale(1.1);
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 2px solid rgba(255,140,66,0.2);
+            background: rgba(255,140,66,0.05);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .cart-total-amount {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--orange);
+        }
+
+        .cart-checkout-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #25D366 0%, #20BA5A 100%);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+        }
+
+        .cart-checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(37,211,102,0.5);
+        }
+
+        .cart-clear-btn {
+            width: 100%;
+            background: transparent;
+            color: rgba(255,255,255,0.6);
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .cart-clear-btn:hover {
+            color: #ff5555;
+            border-color: #ff5555;
+        }
+
+        /* Add to Tray button styles */
+        .add-to-tray-btn {
+            background: transparent;
+            border: 2px solid var(--orange);
+            color: var(--orange);
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .add-to-tray-btn:hover {
+            background: var(--orange);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .add-to-tray-btn.added {
+            background: var(--orange);
+            color: white;
+        }
+
+        .menu-item-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 160px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(255,140,66,0.95);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            z-index: 1003;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            box-shadow: 0 4px 20px rgba(255,140,66,0.4);
+        }
+
+        .toast.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .cart-fab {
+                bottom: 80px;
+                right: 16px;
+                width: 55px;
+                height: 55px;
+                font-size: 22px;
+            }
+
+            .cart-drawer {
+                max-width: 100%;
+            }
+
+            .menu-item-buttons {
+                justify-content: center;
+            }
+
+            .add-to-tray-btn, .discover-btn {
+                padding: 8px 14px;
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cart-fab {
+                bottom: 75px;
+                right: 12px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .cart-badge {
+                width: 20px;
+                height: 20px;
+                font-size: 10px;
+            }
+
+            .toast {
+                bottom: 140px;
+                font-size: 13px;
+                padding: 10px 20px;
             }
         }
     </style>
@@ -1782,74 +2228,75 @@
     <script type="text/babel">
         const { useState, useEffect } = React;
 
-        // Menu Data
+        // Menu Data with Local Images - All 40 labeled images integrated
         const menuData = [
-            // Rice Dishes
-            { id: 1, name: 'Jollof Rice with Chicken', category: 'rice', price: 2500, description: 'Perfectly seasoned Nigerian jollof rice with tender grilled chicken, a classic party favorite', icon: '🍛' },
-            { id: 2, name: 'Fried Rice with Beef', category: 'rice', price: 2200, description: 'Colorful fried rice with mixed vegetables and juicy beef strips', icon: '🍚' },
-            { id: 3, name: 'Native Rice with Fish', category: 'rice', price: 2800, description: 'Traditional native rice prepared with palm oil and fresh fish', icon: '🐟' },
-            { id: 4, name: 'Coconut Rice with Prawns', category: 'rice', price: 3200, description: 'Aromatic coconut rice served with succulent prawns', icon: '🍤' },
-            { id: 5, name: 'Ofada Rice with Ayamase', category: 'rice', price: 3000, description: 'Authentic ofada rice with spicy green pepper sauce', icon: '🌶️' },
-
-            // Soups
-            { id: 6, name: 'Egusi Soup', category: 'soups', price: 2500, description: 'Rich egusi soup with assorted meat and fresh vegetables', icon: '🍲' },
-            { id: 7, name: 'Ogbono Soup', category: 'soups', price: 2200, description: 'Delicious draw soup made from ogbono seeds', icon: '🥘' },
-            { id: 8, name: 'Banga Soup', category: 'soups', price: 2800, description: 'Palm nut soup with assorted meat', icon: '🥣' },
-            { id: 9, name: 'Afang Soup', category: 'soups', price: 2600, description: 'Nutritious vegetable soup with waterleaf', icon: '🥗' },
-            { id: 10, name: 'Edikang Ikong', category: 'soups', price: 3000, description: 'Premium vegetable soup with ugu and waterleaf', icon: '🍵' },
-
-            // Swallow
-            { id: 34, name: 'Pounded Yam', category: 'swallow', price: 1000, description: 'Freshly pounded yam, smooth and stretchy', icon: '🥘' },
-            { id: 35, name: 'Fufu', category: 'swallow', price: 800, description: 'Traditional cassava fufu', icon: '🥘' },
-            { id: 36, name: 'Eba (Garri)', category: 'swallow', price: 500, description: 'Classic eba made from garri', icon: '🥘' },
-            { id: 37, name: 'Semovita', category: 'swallow', price: 800, description: 'Smooth semovita swallow', icon: '🥘' },
-            { id: 38, name: 'Starch', category: 'swallow', price: 800, description: 'Traditional white starch', icon: '🥘' },
-            { id: 39, name: 'Amala', category: 'swallow', price: 800, description: 'Yam flour swallow', icon: '🥘' },
-
-            // Nigerian Specials
-            { id: 11, name: 'Pepper Soup', category: 'specials', price: 2500, description: 'Spicy aromatic soup with your choice of goat meat, fish, or chicken', icon: '🌶️' },
-            { id: 12, name: 'Nkwobi', category: 'specials', price: 4500, description: 'Spicy cow foot delicacy in rich palm oil sauce with utazi leaves', icon: '🍖' },
-            { id: 13, name: 'Isi Ewu', category: 'specials', price: 5000, description: 'Traditional goat head delicacy prepared with authentic spices', icon: '🐐' },
-            { id: 14, name: 'Asun (Spicy Goat)', category: 'specials', price: 4000, description: 'Grilled goat meat in hot pepper sauce, a true delicacy', icon: '🔥' },
-            { id: 15, name: 'Suya Platter', category: 'specials', price: 3500, description: 'Assorted grilled meat with traditional suya spice', icon: '🥩' },
-
-            // Small Chops
-            { id: 16, name: 'Spring Rolls (6 pcs)', category: 'smallchops', price: 1500, description: 'Crispy golden spring rolls filled with vegetables and chicken', icon: '🥟' },
-            { id: 17, name: 'Samosa (6 pcs)', category: 'smallchops', price: 1200, description: 'Triangular pastries stuffed with spiced filling', icon: '🥙' },
-            { id: 18, name: 'Puff Puff (10 pcs)', category: 'smallchops', price: 800, description: 'Sweet fluffy Nigerian doughnut balls', icon: '🍩' },
-            { id: 19, name: 'Chicken Wings (6 pcs)', category: 'smallchops', price: 2500, description: 'Crispy fried chicken wings with choice of sauce', icon: '🍗' },
-            { id: 20, name: 'Fish Rolls (6 pcs)', category: 'smallchops', price: 1800, description: 'Crunchy pastry rolls with fish filling', icon: '🐠' },
-
-            // Shawarma & Pizza
-            { id: 21, name: 'Chicken Shawarma', category: 'shawarma', price: 2000, description: 'Grilled chicken wrap with fresh vegetables and special sauce', icon: '🌯' },
-            { id: 22, name: 'Beef Shawarma', category: 'shawarma', price: 2200, description: 'Juicy beef shawarma with crisp vegetables', icon: '🥙' },
-            { id: 23, name: 'Pepperoni Pizza (Medium)', category: 'shawarma', price: 3500, description: 'Classic pepperoni pizza with melted cheese', icon: '🍕' },
-            { id: 24, name: 'Chicken Supreme Pizza', category: 'shawarma', price: 4000, description: 'Loaded chicken pizza with premium toppings', icon: '🍕' },
-
-            // Pastries
-            { id: 25, name: 'Meat Pie', category: 'pastries', price: 500, description: 'Flaky pastry filled with seasoned minced meat', icon: '🥧' },
-            { id: 26, name: 'Fish Pie', category: 'pastries', price: 600, description: 'Golden pastry with delicious fish filling', icon: '🐟' },
-            { id: 27, name: 'Chicken Pie', category: 'pastries', price: 600, description: 'Savory chicken pie with vegetables', icon: '🥐' },
-            { id: 28, name: 'Sausage Roll', category: 'pastries', price: 500, description: 'Crispy pastry wrapped around tasty sausage', icon: '🌭' },
-            { id: 29, name: 'Doughnuts (3 pcs)', category: 'pastries', price: 900, description: 'Soft and sweet glazed doughnuts', icon: '🍩' },
-
             // Drinks
-            { id: 30, name: 'Chapman', category: 'drinks', price: 800, description: 'Nigerian cocktail drink with mixed fruits', icon: '🍹' },
-            { id: 31, name: 'Zobo (Hibiscus)', category: 'drinks', price: 500, description: 'Refreshing hibiscus drink', icon: '🥤' },
-            { id: 32, name: 'Fresh Juice', category: 'drinks', price: 1000, description: 'Freshly squeezed fruit juice', icon: '🥤' },
-            { id: 33, name: 'Smoothies', category: 'drinks', price: 1500, description: 'Creamy blended fruit smoothies', icon: '🥤' },
+            { id: 1, name: 'Chi Active Big', category: 'drinks', price: 3500, description: 'Refreshing Chi Active fruit drink, large size', image: 'chivita active.JPG' },
+            { id: 2, name: 'Chi Exotic Big', category: 'drinks', price: 3500, description: 'Premium Chi Exotic tropical blend, large bottle', image: 'chi exotic big.JPG' },
+            { id: 3, name: 'Chi Exotic Medium', category: 'drinks', price: 2000, description: 'Chi Exotic tropical juice, medium size', image: 'chi exotic medium.JPG' },
+            { id: 4, name: 'Chi Exotic Small', category: 'drinks', price: 1500, description: 'Chi Exotic tropical juice, small size', image: 'chi exotic small.WEBP' },
+            { id: 5, name: 'Hollandia Yoghurt Big', category: 'drinks', price: 3500, description: 'Creamy Hollandia yoghurt drink, large bottle', image: 'hollandia medium.JPG' },
+            { id: 6, name: 'Hollandia Yoghurt Medium', category: 'drinks', price: 2000, description: 'Smooth Hollandia yoghurt drink, medium size', image: 'hollandia medium.JPG' },
+            { id: 7, name: 'Hollandia Yoghurt Small', category: 'drinks', price: 1500, description: 'Delicious Hollandia yoghurt drink, small size', image: 'hollandia small.JPG' },
+            { id: 8, name: 'Pet Cola', category: 'drinks', price: 700, description: 'Classic cola soft drink in PET bottle', image: 'pet coke.JPG' },
+            { id: 9, name: 'Can Coke', category: 'drinks', price: 1000, description: 'Ice-cold Coca-Cola in a can', image: 'can coke.JPG' },
+            { id: 10, name: 'Fanta', category: 'drinks', price: 1000, description: 'Refreshing orange Fanta drink', image: 'can fanta.JPG' },
+
+            // Beverages & Snacks
+            { id: 11, name: 'De Eminent Juice', category: 'beverages', price: 1000, description: 'Our signature fresh fruit juice blend', image: 'juices.JPG' },
+            { id: 12, name: 'Duru Juice', category: 'beverages', price: 1500, description: 'Premium natural fruit juice', image: 'juices.JPG' },
+            { id: 13, name: 'Five Alive', category: 'beverages', price: 2500, description: 'Five Alive citrus burst juice drink', image: 'juices.JPG' },
+            { id: 14, name: 'Yoghurt', category: 'beverages', price: 2000, description: 'Fresh creamy yoghurt cup', image: 'parfait.JPG' },
+            { id: 15, name: 'Parfait', category: 'beverages', price: 2500, description: 'Layered yoghurt parfait with granola and fruits', image: 'parfait.JPG' },
+            { id: 16, name: 'Fruit Juice', category: 'beverages', price: 1500, description: 'Freshly squeezed natural fruit juice', image: 'juices.JPG' },
+            { id: 17, name: 'Granola Big', category: 'beverages', price: 3000, description: 'Crunchy granola with nuts and dried fruits, large portion', image: 'granola bowl.JPG' },
+            { id: 18, name: 'Granola Small', category: 'beverages', price: 1500, description: 'Healthy granola snack, small portion', image: 'granola bowl.JPG' },
+            { id: 19, name: 'Water', category: 'beverages', price: 400, description: 'Pure bottled water', image: 'beverages.JPG' },
+            { id: 20, name: 'Ice Cream', category: 'beverages', price: 2000, description: 'Creamy delicious ice cream', image: 'parfait.JPG' },
+            { id: 21, name: 'Can Malt', category: 'beverages', price: 1000, description: 'Refreshing malt drink in a can', image: 'can malt.JPG' },
+
+            // Baked Goods & Snacks
+            { id: 22, name: 'Chicken Panellad', category: 'baked', price: 2500, description: 'Crispy breaded chicken fillet', image: 'chicken pie.JPG' },
+            { id: 23, name: 'Meat Pie', category: 'baked', price: 1500, description: 'Golden flaky pastry filled with seasoned minced meat', image: 'meatpie.JPG' },
+            { id: 24, name: '8 Inches Cake', category: 'baked', price: 15000, description: 'Beautiful 8-inch celebration cake, customizable', image: 'cake.JPG' },
+            { id: 25, name: '6 Inches Cake', category: 'baked', price: 11000, description: 'Elegant 6-inch cake for special occasions', image: 'cake.JPG' },
+            { id: 26, name: 'Marble Cake', category: 'baked', price: 3500, description: 'Soft and fluffy marble swirl cake slice', image: 'mable cake.JPG' },
+            { id: 27, name: 'Chin Chin', category: 'baked', price: 1500, description: 'Crunchy Nigerian fried pastry snack', image: 'chin chin.JPG' },
+            { id: 28, name: 'Popcorn', category: 'baked', price: 1000, description: 'Freshly popped buttery popcorn', image: 'popcorn.JPG' },
+            { id: 29, name: 'Chicken Pie', category: 'baked', price: 1500, description: 'Savory chicken pie with flaky crust', image: 'chicken pie.JPG' },
+            { id: 30, name: 'Peanut Cookies', category: 'baked', price: 2000, description: 'Crunchy homemade peanut cookies', image: 'peanut cookie.JPG' },
+            { id: 31, name: 'Salad Pie', category: 'baked', price: 2500, description: 'Delicious pie filled with creamy coleslaw salad', image: 'meatpie.JPG' },
+
+            // Main Meals
+            { id: 32, name: 'Burger', category: 'meals', price: 2500, description: 'Juicy beef burger with fresh toppings', image: 'chicken pie.JPG' },
+            { id: 33, name: 'Sausage', category: 'meals', price: 1000, description: 'Grilled sausage, perfectly seasoned', image: 'grilled sausage.JPG' },
+            { id: 34, name: 'Doughnut', category: 'meals', price: 1000, description: 'Soft glazed doughnut', image: 'doughnut.JPG' },
+            { id: 35, name: 'Jollof Rice', category: 'meals', price: 1500, description: 'Authentic Nigerian party jollof rice', image: 'Jollof rice.JPG' },
+            { id: 36, name: 'Caribbean Rice', category: 'meals', price: 2000, description: 'Flavorful coconut rice', image: 'carribean rice.JPG' },
+            { id: 37, name: 'Fried Rice', category: 'meals', price: 1500, description: 'Colorful Nigerian fried rice with vegetables', image: 'fried rice.JPG' },
+            { id: 38, name: 'White Rice', category: 'meals', price: 1500, description: 'Fluffy steamed white rice', image: 'white rice.JPG' },
+            { id: 39, name: 'Yam & Sauce', category: 'meals', price: 2500, description: 'Fried yam with delicious pepper sauce', image: 'Yam and sauce.JPG' },
+            { id: 40, name: 'Gravy & Soup', category: 'meals', price: 2500, description: 'Rich stew or soup of your choice', image: 'rice meals.JPG' },
+
+            // Protein & Sides
+            { id: 41, name: 'Basmati Rice', category: 'protein', price: 2500, description: 'Premium long-grain basmati rice', image: 'basmati rice.JPG' },
+            { id: 42, name: 'Gizzard', category: 'protein', price: 3500, description: 'Spicy peppered gizzard', image: 'fried gizzard.JPG' },
+            { id: 43, name: 'Turkey', category: 'protein', price: 7000, description: 'Succulent seasoned fried turkey', image: 'roaasted turkey.JPG' },
+            { id: 44, name: 'Big Chicken', category: 'protein', price: 4000, description: 'Large portion fried chicken', image: 'roasted chicken.JPG' },
+            { id: 45, name: 'Small Chicken', category: 'protein', price: 3800, description: 'Regular portion fried chicken', image: 'roasted chicken.JPG' },
+            { id: 46, name: 'Fish', category: 'protein', price: 3500, description: 'Fried or grilled fish', image: 'roasted fish.JPG' },
+            { id: 47, name: 'Fried Plantain (Dodo)', category: 'protein', price: 800, description: 'Sweet ripe plantain, fried golden', image: 'fried plantain.JPG' },
+            { id: 48, name: 'Moi Moi', category: 'protein', price: 1000, description: 'Steamed Nigerian bean pudding', image: 'moi moi.JPG' },
+            { id: 49, name: 'Salad', category: 'protein', price: 1000, description: 'Fresh coleslaw salad', image: 'salad.JPG' },
         ];
 
         const categories = [
-            { id: 'all', name: 'All', icon: '🍽️' },
-            { id: 'rice', name: 'Rice Dishes', icon: '🍚' },
-            { id: 'soups', name: 'Soups', icon: '🍲' },
-            { id: 'swallow', name: 'Swallow', icon: '🥘' },
-            { id: 'specials', name: 'Nigerian Specials', icon: '🌶️' },
-            { id: 'smallchops', name: 'Small Chops', icon: '🥟' },
-            { id: 'shawarma', name: 'Shawarma & Pizza', icon: '🍕' },
-            { id: 'pastries', name: 'Pastries', icon: '🥧' },
-            { id: 'drinks', name: 'Drinks', icon: '🥤' },
+            { id: 'all', name: 'All', image: 'all.JPG' },
+            { id: 'drinks', name: 'Drinks', image: 'can coke.JPG' },
+            { id: 'beverages', name: 'Beverages & Snacks', image: 'beverages.JPG' },
+            { id: 'baked', name: 'Baked Goods', image: 'cake.JPG' },
+            { id: 'meals', name: 'Main Meals', image: 'rice meals.JPG' },
+            { id: 'protein', name: 'Protein & Sides', image: 'roasted chicken.JPG' },
         ];
 
         // Components
@@ -1890,8 +2337,76 @@
         function MenuApp({ onBack }) {
             const [activeCategory, setActiveCategory] = useState('all');
             const [filteredItems, setFilteredItems] = useState(menuData);
-            const [showBackToTop, setShowBackToTop] = useState(false);
             const [activeNav, setActiveNav] = useState('home');
+            const [cart, setCart] = useState([]);
+            const [showCart, setShowCart] = useState(false);
+            const [toast, setToast] = useState({ show: false, message: '' });
+
+            // Cart functions
+            const addToCart = (item) => {
+                setCart(prevCart => {
+                    const existingItem = prevCart.find(i => i.id === item.id);
+                    if (existingItem) {
+                        return prevCart.map(i =>
+                            i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+                        );
+                    }
+                    return [...prevCart, { ...item, quantity: 1 }];
+                });
+                showToast(`${item.name} added to tray!`);
+            };
+
+            const removeFromCart = (itemId) => {
+                setCart(prevCart => prevCart.filter(i => i.id !== itemId));
+            };
+
+            const updateQuantity = (itemId, delta) => {
+                setCart(prevCart => {
+                    return prevCart.map(item => {
+                        if (item.id === itemId) {
+                            const newQty = item.quantity + delta;
+                            if (newQty <= 0) return null;
+                            return { ...item, quantity: newQty };
+                        }
+                        return item;
+                    }).filter(Boolean);
+                });
+            };
+
+            const clearCart = () => {
+                setCart([]);
+                setShowCart(false);
+            };
+
+            const getCartTotal = () => {
+                return cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            };
+
+            const getCartCount = () => {
+                return cart.reduce((sum, item) => sum + item.quantity, 0);
+            };
+
+            const showToast = (message) => {
+                setToast({ show: true, message });
+                setTimeout(() => setToast({ show: false, message: '' }), 2500);
+            };
+
+            const checkout = () => {
+                if (cart.length === 0) return;
+
+                let message = "Hello! I'd like to order from De-Eminent Eatery:\n\n";
+                cart.forEach(item => {
+                    message += `• ${item.name} x${item.quantity} - ₦${(item.price * item.quantity).toLocaleString()}\n`;
+                });
+                message += `\n*Total: ₦${getCartTotal().toLocaleString()}*`;
+                message += "\n\nPlease confirm availability and delivery details.";
+
+                window.open(`https://wa.me/2347039539167?text=${encodeURIComponent(message)}`, '_blank');
+            };
+
+            const isInCart = (itemId) => {
+                return cart.some(item => item.id === itemId);
+            };
 
             useEffect(() => {
                 if (activeCategory === 'all') {
@@ -1903,8 +2418,6 @@
 
             useEffect(() => {
                 const handleScroll = () => {
-                    setShowBackToTop(window.scrollY > 300);
-
                     // Update active nav based on scroll position
                     const sections = ['hero', 'category-section', 'testimonials', 'location-section', 'footer'];
                     const scrollPos = window.scrollY + 200;
@@ -1937,10 +2450,6 @@
                     }
                 }, 100);
             }, []);
-
-            const scrollToTop = () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            };
 
             const scrollToSection = (sectionClass) => {
                 const element = document.querySelector(`.${sectionClass}`);
@@ -1982,7 +2491,9 @@
                                     className={`category-nav-item ${activeCategory === cat.id ? 'active' : ''}`}
                                     onClick={() => setActiveCategory(cat.id)}
                                 >
-                                    <div className="category-nav-icon">{cat.icon}</div>
+                                    <div className="category-nav-icon">
+                                        <img src={cat.image} alt={cat.name} />
+                                    </div>
                                     <span>{cat.name}</span>
                                 </div>
                             ))}
@@ -2024,23 +2535,34 @@
                                         <div key={category.id}>
                                             <div className="category-header">
                                                 <h3>
-                                                    <span className="category-emoji">{category.icon}</span>
+                                                    <span className="category-header-img">
+                                                        <img src={category.image} alt={category.name} />
+                                                    </span>
                                                     {category.name}
                                                 </h3>
                                             </div>
                                             <div className="menu-items">
                                                 {categoryItems.map(item => (
                                                     <div key={item.id} className="menu-item">
-                                                        <div className="menu-item-image">{item.icon}</div>
+                                                        <div className="menu-item-image">
+                                                            <img src={item.image} alt={item.name} loading="lazy" />
+                                                        </div>
                                                         <div className="menu-item-content">
-                                                            <div className="organic-label">Organic Food</div>
                                                             <h3 className="menu-item-name">{item.name}</h3>
                                                             <p className="menu-item-description">{item.description}</p>
                                                             <div className="menu-item-footer">
                                                                 <div className="menu-item-price">₦{item.price.toLocaleString()}/-</div>
-                                                                <button className="discover-btn" onClick={() => orderItem(item.name)}>
-                                                                    <i className="fab fa-whatsapp"></i> Order Now
-                                                                </button>
+                                                                <div className="menu-item-buttons">
+                                                                    <button
+                                                                        className={`add-to-tray-btn ${isInCart(item.id) ? 'added' : ''}`}
+                                                                        onClick={() => addToCart(item)}
+                                                                    >
+                                                                        <i className="fas fa-plus"></i> {isInCart(item.id) ? 'Add More' : 'Add to Tray'}
+                                                                    </button>
+                                                                    <button className="discover-btn" onClick={() => orderItem(item.name)}>
+                                                                        <i className="fab fa-whatsapp"></i> Order Now
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2055,16 +2577,25 @@
                             <div className="menu-items">
                                 {filteredItems.map(item => (
                                     <div key={item.id} className="menu-item">
-                                        <div className="menu-item-image">{item.icon}</div>
+                                        <div className="menu-item-image">
+                                            <img src={item.image} alt={item.name} loading="lazy" />
+                                        </div>
                                         <div className="menu-item-content">
-                                            <div className="organic-label">Organic Food</div>
                                             <h3 className="menu-item-name">{item.name}</h3>
                                             <p className="menu-item-description">{item.description}</p>
                                             <div className="menu-item-footer">
                                                 <div className="menu-item-price">₦{item.price.toLocaleString()}/-</div>
-                                                <button className="discover-btn" onClick={() => orderItem(item.name)}>
-                                                    <i className="fab fa-whatsapp"></i> Order Now
-                                                </button>
+                                                <div className="menu-item-buttons">
+                                                    <button
+                                                        className={`add-to-tray-btn ${isInCart(item.id) ? 'added' : ''}`}
+                                                        onClick={() => addToCart(item)}
+                                                    >
+                                                        <i className="fas fa-plus"></i> {isInCart(item.id) ? 'Add More' : 'Add to Tray'}
+                                                    </button>
+                                                    <button className="discover-btn" onClick={() => orderItem(item.name)}>
+                                                        <i className="fab fa-whatsapp"></i> Order Now
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -2300,9 +2831,75 @@
                         </div>
                     </footer>
 
-                    {/* Back to Top Button */}
-                    <div className={`back-to-top ${showBackToTop ? 'show' : ''}`} onClick={scrollToTop}>
-                        <i className="fas fa-arrow-up"></i>
+                    {/* Shopping Tray FAB */}
+                    <button
+                        className={`cart-fab ${getCartCount() > 0 ? 'has-items' : ''}`}
+                        onClick={() => setShowCart(true)}
+                        style={{ display: getCartCount() > 0 ? 'flex' : 'none' }}
+                    >
+                        <i className="fas fa-shopping-basket"></i>
+                        {getCartCount() > 0 && <span className="cart-badge">{getCartCount()}</span>}
+                    </button>
+
+                    {/* Cart Overlay */}
+                    <div className={`cart-overlay ${showCart ? 'show' : ''}`} onClick={() => setShowCart(false)}></div>
+
+                    {/* Cart Drawer */}
+                    <div className={`cart-drawer ${showCart ? 'show' : ''}`}>
+                        <div className="cart-header">
+                            <h2><i className="fas fa-shopping-basket"></i> Your Tray</h2>
+                            <button className="cart-close" onClick={() => setShowCart(false)}>
+                                <i className="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <div className="cart-items">
+                            {cart.length === 0 ? (
+                                <div className="cart-empty">
+                                    <i className="fas fa-shopping-basket"></i>
+                                    <p>Your tray is empty</p>
+                                    <p style={{fontSize: '14px', marginTop: '10px'}}>Add items from the menu to get started!</p>
+                                </div>
+                            ) : (
+                                cart.map(item => (
+                                    <div key={item.id} className="cart-item">
+                                        <div className="cart-item-icon"><img src={item.image} alt={item.name} /></div>
+                                        <div className="cart-item-details">
+                                            <div className="cart-item-name">{item.name}</div>
+                                            <div className="cart-item-price">₦{(item.price * item.quantity).toLocaleString()}</div>
+                                        </div>
+                                        <div className="cart-item-controls">
+                                            <button className="qty-btn" onClick={() => updateQuantity(item.id, -1)}>-</button>
+                                            <span className="cart-item-qty">{item.quantity}</span>
+                                            <button className="qty-btn" onClick={() => updateQuantity(item.id, 1)}>+</button>
+                                            <button className="cart-item-remove" onClick={() => removeFromCart(item.id)}>
+                                                <i className="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))
+                            )}
+                        </div>
+
+                        {cart.length > 0 && (
+                            <div className="cart-footer">
+                                <div className="cart-total">
+                                    <span>Total:</span>
+                                    <span className="cart-total-amount">₦{getCartTotal().toLocaleString()}</span>
+                                </div>
+                                <button className="cart-checkout-btn" onClick={checkout}>
+                                    <i className="fab fa-whatsapp"></i> Checkout via WhatsApp
+                                </button>
+                                <button className="cart-clear-btn" onClick={clearCart}>
+                                    Clear Tray
+                                </button>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Toast Notification */}
+                    <div className={`toast ${toast.show ? 'show' : ''}`}>
+                        {toast.message}
                     </div>
 
                     {/* Bottom Navigation Bar */}
