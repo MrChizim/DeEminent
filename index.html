@@ -2416,7 +2416,7 @@
             { id: 31, name: 'Salad Pie', category: 'baked', price: 2500, description: 'Delicious pie filled with creamy coleslaw salad', image: 'meatpie.JPG' },
 
             // Main Meals
-            { id: 32, name: 'Burger', category: 'meals', price: 2500, description: 'Juicy beef burger with fresh toppings', image: 'chicken pie.JPG' },
+            { id: 32, name: 'Burger', category: 'meals', price: 2500, description: 'Juicy beef burger with fresh toppings', image: 'burger.JPG' },
             { id: 33, name: 'Sausage', category: 'meals', price: 1000, description: 'Grilled sausage, perfectly seasoned', image: 'grilled sausage.JPG' },
             { id: 34, name: 'Doughnut', category: 'meals', price: 1000, description: 'Soft glazed doughnut', image: 'doughnut.JPG' },
             { id: 35, name: 'Jollof Rice', category: 'meals', price: 1500, description: 'Authentic Nigerian party jollof rice', image: 'Jollof rice.JPG' },
@@ -2562,6 +2562,11 @@
                     setFilteredItems(menuData);
                 } else {
                     setFilteredItems(menuData.filter(item => item.category === activeCategory));
+                }
+                // Scroll to top of category section when category changes
+                const categorySection = document.querySelector('.category-section');
+                if (categorySection) {
+                    categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }, [activeCategory]);
 
